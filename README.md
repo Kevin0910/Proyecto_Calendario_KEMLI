@@ -1,14 +1,14 @@
 # Calendario
--- Frontend -- En este repositorio solo se trabajara en el lado del cliente (HTML, CSS, TYPESCRIPT)
+-- Front-end -- En este repositorio solo se trabajara en el lado del cliente (HTML, CSS, TYPESCRIPT)
 
 Entorno de desarrolló
 
--- Lado Cliente (Frontend) --
+-- Lado Cliente (Front-end) --
 
-1.- Visula Estudio Code.           https://code.visualstudio.com/
+1.- Visual Studio Code.           https://code.visualstudio.com/
  
  
- -- Lado del seridor (Backend) --
+ -- Lado del servidor (Back-end) --
 
 1.- IntelliJ "Gratuito o premium" (Cómo segunda opción pueden usar eclipse)
 
@@ -22,7 +22,7 @@ Entorno de desarrolló
 
 -- Controlador de versiones --
 
-El Correro es el personal y el nombre sera un nombre y un apellido.
+El Correo es el personal y el nombre sera un nombre y un apellido.
 
 1.- Git hub (Crear cuenta https://github.com/)
 
