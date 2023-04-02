@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { from } from 'rxjs';
-import { Cliente } from './cliente';
-import { CLIENTES } from './clientes.json';
 
+import { Cliente } from './cliente';
+import { ClienteService } from './cliente.service';
 
 @Component({
   selector: 'app-cliente',
@@ -12,8 +11,14 @@ import { CLIENTES } from './clientes.json';
 export class ClienteComponent {
   clientes: Cliente [];
 
+  constructor(private clienteService:ClienteService){
+
+  }
+
   ngOnInit(): void {
-    this.clientes = CLIENTES;
+    this.clienteService.getClientes().subscribe(
+      (clientes) => this.clientes = clientes
+    );
 
   }
 }

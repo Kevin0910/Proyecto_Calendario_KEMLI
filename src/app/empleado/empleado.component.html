@@ -1,0 +1,35 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Tecnicos</div>
+  <div class="card-body text-secondary">
+    <h5 class="card-title">Listado de tecnicos</h5>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Domicilio</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+            <th>Tipo de empleado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let empleado of empleados">
+            <td>{{empleado.id}}</td>
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.apellido_P}}</td>
+            <td>{{empleado.apellido_M}}</td>
+            <td>{{empleado.fecha_naci}}</td>
+            <td>{{empleado.domicilio}}</td>
+            <td>{{empleado.correo}}</td>
+            <td>{{empleado.telefono}}</td>
+            <td>{{empleado.tipo_empleado}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
