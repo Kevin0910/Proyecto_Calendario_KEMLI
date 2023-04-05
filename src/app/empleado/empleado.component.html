@@ -1,7 +1,14 @@
 <div class="card border-primary mb-3">
-  <div class="card-header">Tecnicos</div>
+  <div class="card-header">Empleados</div>
   <div class="card-body text-secondary">
-    <h5 class="card-title">Listado de tecnicos</h5>
+    <h5 class="card-title">Listado de empleados</h5>
+
+
+    <div class=" form-group row mb-2">
+      <div class=" col-sm-2 my-3 text-left">
+        <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/empleados/formulario-empleados']">Crear empleado</button>
+      </div>
+    </div>
 
       <table class="table table-bordered table-striped">
         <thead>
@@ -15,6 +22,7 @@
             <th>Correo</th>
             <th>Telefono</th>
             <th>Tipo de empleado</th>
+            <th>Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -28,6 +36,9 @@
             <td>{{empleado.correo}}</td>
             <td>{{empleado.telefono}}</td>
             <td>{{empleado.tipo_empleado}}</td>
+            <td>
+              <button type="button" name="button" [routerLink]="['/empleados/formulario-empleados', empleado.id]" class="btn btn-primary">Editar</button>
+            </td>
           </tr>
         </tbody>
       </table>

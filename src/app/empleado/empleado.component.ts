@@ -11,9 +11,7 @@ export class EmpleadoComponent {
 
   empleados: Empleado [];
 
-  constructor(private empleadoServicio:EmpleadoService){
-
-  }
+  constructor(private empleadoServicio:EmpleadoService){  }
 
   ngOnInit(): void {
     this.empleadoServicio.getEmpleados().subscribe(

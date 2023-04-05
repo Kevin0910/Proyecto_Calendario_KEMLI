@@ -3,6 +3,12 @@
   <div class="card-body text-secondary">
     <h5 class="card-title">Listado de clientes</h5>
 
+    <div class=" form-group row mb-2">
+      <div class=" col-sm-2 my-3 text-left">
+        <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/clientes/formulario']">Crear cliente</button>
+      </div>
+    </div>
+
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
@@ -14,6 +20,7 @@
             <th>Domicilio</th>
             <th>Correo</th>
             <th>Telefono</th>
+            <th>Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +33,9 @@
             <td>{{cliente.domicilio}}</td>
             <td>{{cliente.correo}}</td>
             <td>{{cliente.telefono}}</td>
+            <td>
+              <button type="button" name="button" [routerLink]="['/clientes/formulario', cliente.id]" class="btn btn-primary">editar</button>
+            </td>
           </tr>
         </tbody>
       </table>
