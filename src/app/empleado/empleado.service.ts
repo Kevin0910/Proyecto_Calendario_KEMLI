@@ -28,4 +28,8 @@ export class EmpleadoService {
     getEmpleado(id): Observable<Empleado>{
       return this.http.get<Empleado>(`${this.urlEndPoint}/${id}`)
     }
+
+    update(empleado:Empleado): Observable<Empleado>{
+      return this.http.put<Empleado>(`${this.urlEndPoint}/${empleado.id}`, empleado, {headers:this.HttpHeaders})
+    }
 }

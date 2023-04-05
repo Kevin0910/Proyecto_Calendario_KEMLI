@@ -34,12 +34,20 @@ export class FormularioComponent implements OnInit{
     })
   }
 
-    create(): void{
+  create(): void{
     this.clienteService.create(this.cliente).subscribe
     (cliente => {
       this.router.navigate(['/clientes'])
       swal('Cliente guardado', `Cliente ${cliente.nombre} ${cliente.apellido_P} ${cliente.apellido_M} Creado con exito`, 'success')
-    }
-    );
+    });
+  }
+
+  update():void{
+    this.clienteService.update(this.cliente).subscribe(
+      (cliente => {
+        this.router.navigate(['/clientes'])
+        swal ('Cliente Actualizado', `Cliente ${cliente.nombre} ${cliente.apellido_P} se a actualizado con exito`, 'success' )
+      })
+    )
   }
 }

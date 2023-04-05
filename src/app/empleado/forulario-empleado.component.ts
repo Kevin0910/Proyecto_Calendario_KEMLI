@@ -38,9 +38,13 @@ export class ForularioEmpleadoComponent {
       swal('Empleado Guardado', `Empleado ${empleado.nombre} ${empleado.apellido_P} ${empleado.apellido_M}`, 'success')
     }
   );
-
-   /* public create(): void{
-      console.log("Click")
-      console.log(this.empleado)
-  }*/
-}}
+}
+  update():void{
+    this.empleadoService.update(this.empleado).subscribe(
+      (empleado => {
+        this.router.navigate(['/empleados'])
+        swal('Empleado Actualizado', `Empleado ${empleado.nombre} ${empleado.apellido_P} se a actualizado con exito`, 'success')
+      })
+    )
+  }
+}
