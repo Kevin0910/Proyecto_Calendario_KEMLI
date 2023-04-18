@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-
 import { Empleado } from './empleado';
-import { EMPLEADOS } from './empleado.json';
 
-import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs'  ;
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,22 +15,56 @@ export class EmpleadoService {
   private urlEndPoint: string = 'http://localhost:8080/api/empleados';
   private HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private router: Router) {}
 
+  //OBTENER TODOS LOS CLIENTES
     getEmpleados(): Observable <Empleado[]>{
-      //return of(EMPLEADOS);
       return this.http.get<Empleado[]>(this.urlEndPoint);
   }
 
-    create(empleado: Empleado): Observable <Empleado>{
-      return this.http.post<Empleado>(this.urlEndPoint, empleado, {headers: this.HttpHeaders})
+  //POST PARA CREAR EMPLEADOS
+    create(empleado: Empleado): Observable <any>{
+      return this.http.post<any>(this.urlEndPoint, empleado, {headers: this.HttpHeaders}).pipe(
+        catchError(e => {
+          console.error(e.error.mensaje);
+          swal(e.error.mensaje, e.error.error, 'error');
+          return throwError(() => e)
+        })
+      );
     }
 
-    getEmpleado(id): Observable<Empleado>{
-      return this.http.get<Empleado>(`${this.urlEndPoint}/${id}`)
+    //GET PARA OBTENER CLIENTES MEDIANTE ID
+    getEmpleado(id): Observable<any>{
+      return this.http.get<any>(`${this.urlEndPoint}/${id}`).pipe(
+        catchError(e => {
+          this.router.navigate(['/empleados'])
+          console.error(e.error.mensaje);
+          swal(e.error.mensaje, e.error.error, 'error')
+          return throwError(() => e);
+        })
+      );
     }
 
-    update(empleado:Empleado): Observable<Empleado>{
-      return this.http.put<Empleado>(`${this.urlEndPoint}/${empleado.id}`, empleado, {headers:this.HttpHeaders})
+    //PUT PARA EDITAR CLIENTE
+    update(empleado:Empleado): Observable<any>{
+      return this.http.put<any>(`${this.urlEndPoint}/${empleado.id}`, empleado, {headers:this.HttpHeaders}).pipe(
+        catchError(e => {
+          console.error(e.error.mensaje)
+          swal(e.error.mensaje, e.error.error, 'error')
+          return throwError (()=> e);
+        })
+      );
+    }
+
+    //ELIMINAR CLIENTE
+    delete(id:number): Observable<any>{
+      return this.http.delete<any>(`${this.urlEndPoint}/${id}`, {headers:this.HttpHeaders}).pipe(
+        catchError(e=>{
+          console.error(e.error.mensaje)
+          swal(e.error.mensaje, e.error.error, 'error')
+          return throwError (()=> e);
+        })
+      );
     }
 }

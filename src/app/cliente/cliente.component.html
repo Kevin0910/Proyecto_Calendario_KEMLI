@@ -13,7 +13,7 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Nombre</th>
+            <th>Nombre(s)</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Fecha de Nacimiento</th>
@@ -21,12 +21,13 @@
             <th>Correo</th>
             <th>Telefono</th>
             <th>Editar</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let cliente of clientes">
             <td>{{cliente.id}}</td>
-            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.primer_nombre}} {{cliente.segundo_nombre}}</td>
             <td>{{cliente.apellido_P}}</td>
             <td>{{cliente.apellido_M}}</td>
             <td>{{cliente.fecha_naci}}</td>
@@ -34,7 +35,10 @@
             <td>{{cliente.correo}}</td>
             <td>{{cliente.telefono}}</td>
             <td>
-              <button type="button" name="button" [routerLink]="['/clientes/formulario', cliente.id]" class="btn btn-primary">Editar</button>
+              <button type="button" name="button_editar_cliente" [routerLink]="['/clientes/formulario', cliente.id]" class="btn btn-primary btn-sm">Editar</button>
+            </td>
+            <td>
+              <button type="button" name="button_eliminar_cliente" (click)="delete(cliente)" class="btn btn-danger  btn-sm">Eliminar</button>
             </td>
           </tr>
         </tbody>

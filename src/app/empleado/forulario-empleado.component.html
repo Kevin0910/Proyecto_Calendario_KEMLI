@@ -2,73 +2,125 @@
   <div class="card-header ">{{titulo}}</div>
     <div class="card-body">
 
-      <form>
+      <form #empleadoForm = "ngForm">
         <div class="form-group row mb-3">
-          <label for="nombre" class="col-form-label col-sm-2 ">Nombre</label>
+          <label for="nombre_1" class="col-form-label col-sm-2 ">Primer nombre</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)] ="empleado.nombre" name="nombre">
+            <input type="text" class="form-control" [(ngModel)] ="empleado.primer_nombre" name="nombre_1" required minlength="3" #primer_nombre="ngModel">
+            <div class="alert alert-danger" *ngIf="primer_nombre.invalid && (primer_nombre.dirty || primer_nombre.touched)">
+              <div *ngIf="primer_nombre.errors.required">
+                Nombre requerido
+              </div>
+              <div *ngIf="primer_nombre.errors.minlength">
+                El nombre debe de tener 3 caracteres
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="apellido_P" class="col.form-label col-sm-2">Apellido Paterno</label>
+          <label for="nombre_2" class="col-form-label col-sm-2 ">Segundo nombre</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" [(ngModel)] ="empleado.segundo_nombre" name="nombre_2" >
+          </div>
+        </div>
+
+        <div class="form-group row mb-3">
+          <label for="apellido_P" class="col-form-label col-sm-2">Apellido Paterno</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.apellido_P" name="apellido_P">
+              <input type="text" class="form-control" [(ngModel)]="empleado.apellido_P" name="apellido_P" required #apellido_paterno = "ngModel">
+              <div class="alert alert-danger" *ngIf="apellido_paterno.invalid && (apellido_paterno.dirty || apellido_paterno.touched)">
+                <div *ngIf="apellido_materno.errors.required">
+                  Apellido materno requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="apellido_M" class="col.form-label col-sm-2">Apellido Materno</label>
+          <label for="apellido_M" class="col-form-label col-sm-2">Apellido Materno</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.apellido_M  " name="apellido_M">
+              <input type="text" class="form-control" [(ngModel)]="empleado.apellido_M  " name="apellido_M" required #apellido_materno = "ngModel">
+              <div class="alert alert-danger" *ngIf="apellido_materno.invalid && (apellido_materno.dirty || apellido_materno.touched)">
+                <div *ngIf="apellido_materno.errors.required">
+                  Apellido materno requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="fecha_naci" class="col.form-label col-sm-2">Fecha de nacimiento</label>
+          <label for="fecha_naci" class="col-form-label col-sm-2">Fecha de nacimiento</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.fecha_naci" name="fecha_naci">
+              <input type="text" class="form-control" [(ngModel)]="empleado.fecha_naci" name="fecha_naci" required #fecha_nacimiento = "ngModel">
+              <div class="alert alert-danger" *ngIf="fecha_nacimiento.invalid && (fecha_nacimiento.dirty || fecha_nacimiento.touched)">
+                <div *ngIf="fecha_nacimiento.errors.required">
+                  Fecha de nacimiento requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="domicilio" class="col.form-label col-sm-2">Domicilio</label>
+          <label for="domicilio" class="col-form-label col-sm-2">Domicilio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.domicilio" name="domicilio">
+              <input type="text" class="form-control" [(ngModel)]="empleado.domicilio" name="domicilio" required #domicilio ="ngModel">
+              <div class="alert alert-danger" *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)">
+                <div *ngIf="domicilio.errors.required">
+                  domicilio requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="correo" class="col.form-label col-sm-2">Correo electronico</label>
+          <label for="correo" class="col-form-label col-sm-2">Correo electronico</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.correo" name="correo">
+              <input type="text" class="form-control" [(ngModel)]="empleado.correo" name="correo" required email #email="ngModel">
+              <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">
+                  Email requerido
+                </div>
+                <div *ngIf="email.errors.email">
+                  No es un formato de email
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="telefono" class="col.form-label col-sm-2">Número de telefono</label>
+          <label for="telefono" class="col-form-label col-sm-2">Número de telefono</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.telefono" name="telefono">
+              <input type="text" class="form-control" [(ngModel)]="empleado.telefono" name="telefono" required #telefono ="ngModel">
+              <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                <div *ngIf="telefono.errors.required">
+                  Telefono requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="tipo_empleado" class="col.form-label col-sm-2">Tipo de empleado</label>
+          <label for="tipo_empleado" class="col-form-label col-sm-2">Tipo de empleado</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.tipo_empleado" name="tipo_empleado">
+              <input type="text" class="form-control" [(ngModel)]="empleado.tipo_empleado" name="tipo_empleado" required #tipo_empleado ="ngModel">
+              <div class="alert alert-danger" *ngIf="tipo_empleado.invalid && (tipo_empleado.dirty || tipo_empleado.touched)">
+                <div *ngIf="tipo_empleado.errors.required">
+                  Tipo de empleado requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-2">
           <div class="col-sm-1">
-            <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!empleado.id else elseBlock">Crear</button>
+            <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!empleado.id else elseBlock" [disabled]="!empleadoForm.form.valid">Crear</button>
             <ng-template #elseBlock>
-              <button class="btn btn-primary" role="button" (click)="update()">Editar</button>
+              <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!empleadoForm.form.valid">Editar</button>
             </ng-template>
-
           </div>
           <div class="col-sm-3">
-              <button  class="btn btn-danger" role="button" routerLink="/empleados">Cancelar</button>
+              <button  class="btn btn-danger " role="button" routerLink="/empleados">Cancelar</button>
           </div>
         </div>
     </form>

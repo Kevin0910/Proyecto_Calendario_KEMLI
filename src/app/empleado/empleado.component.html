@@ -14,7 +14,7 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Nombre</th>
+            <th>Nombre(s)</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Fecha de Nacimiento</th>
@@ -23,12 +23,13 @@
             <th>Telefono</th>
             <th>Tipo de empleado</th>
             <th>Editar</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let empleado of empleados">
             <td>{{empleado.id}}</td>
-            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.primer_nombre}} {{empleado.segundo_nombre}}</td>
             <td>{{empleado.apellido_P}}</td>
             <td>{{empleado.apellido_M}}</td>
             <td>{{empleado.fecha_naci}}</td>
@@ -37,7 +38,10 @@
             <td>{{empleado.telefono}}</td>
             <td>{{empleado.tipo_empleado}}</td>
             <td>
-              <button type="button" name="button" [routerLink]="['/empleados/formulario-empleados', empleado.id]" class="btn btn-primary">Editar</button>
+              <button type="button" name="button_editar_empleado" [routerLink]="['/empleados/formulario-empleados', empleado.id]" class="btn btn-primary btn-sm">Editar</button>
+            </td>
+            <td>
+              <button type="button" name="button_eliminar_empleado" (click)="delete(empleado)" class="btn btn-danger btn-sm">Eliminar</button>
             </td>
           </tr>
         </tbody>

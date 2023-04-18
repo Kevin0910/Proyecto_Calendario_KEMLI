@@ -33,17 +33,18 @@ export class ForularioEmpleadoComponent {
 
   create(): void{
   this.empleadoService.create(this.empleado).subscribe(
-    empleado => {
+    jsonResponse => {
       this.router.navigate(['/empleados'])
-      swal('Empleado Guardado', `Empleado ${empleado.nombre} ${empleado.apellido_P} ${empleado.apellido_M}`, 'success')
+      swal('Empleado Guardado', `El empleado ${jsonResponse.empleado.primer_nombre} ${jsonResponse.empleado.apellido_P} se a guardado con exito`, 'success')
     }
   );
 }
+
   update():void{
     this.empleadoService.update(this.empleado).subscribe(
-      (empleado => {
+      (jsonResponse => {
         this.router.navigate(['/empleados'])
-        swal('Empleado Actualizado', `Empleado ${empleado.nombre} ${empleado.apellido_P} se a actualizado con exito`, 'success')
+        swal('Empleado Actualizado', `El empleado ${jsonResponse.empleado.primer_nombre} ${jsonResponse.empleado.apellido_P} se a actualizado con exito`, 'success')
       })
     )
   }

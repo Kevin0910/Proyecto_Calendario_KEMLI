@@ -1,62 +1,110 @@
 <div class="card bg-dark text-white">
   <div class="card-header ">{{titulo}}</div>
     <div class="card-body">
-
-      <form>
+      
+      <form #clienteForm ="ngForm">
         <div class="form-group row mb-3">
-          <label for="nombre" class="col-form-label col-sm-2 ">Nombre</label>
+          <label for="primer_nombre" class="col-form-label col-sm-2 ">Primer nombre</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)] ="cliente.nombre" name="nombre">
+            <input type="text" class="form-control" [(ngModel)] ="cliente.primer_nombre" name="primer_nombre" required minlength="3" #primer_nombre="ngModel">
+            <div class="alert alert-danger" *ngIf="primer_nombre.invalid && (primer_nombre.dirty || primer_nombre.touched)">
+              <div *ngIf="primer_nombre.errors.required">
+                Nombre requerido
+              </div>
+              <div *ngIf="primer_nombre.errors.minlength">
+                El nombre debe de tener 3 caracteres
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="form-group row mb-3">
-          <label for="apellido_P" class="col.form-label col-sm-2">Apellido Paterno</label>
+          <div class="form-group row mb-3">
+            <label for="segundo_nombre" class="col-form-label col-sm-2 ">Segundo nombre</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.apellido_P" name="apellido_P">
+              <input type="text" class="form-control" [(ngModel)] ="cliente.segundo_nombre" name="segundo_nombre">
+            </div>
+          </div>
+
+        <div class="form-group row mb-3">
+          <label for="apellido_P" class="col-form-label col-sm-2">Apellido Paterno</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [(ngModel)]="cliente.apellido_P" name="apellido_P" required #apellido_paterno = "ngModel">
+              <div class="alert alert-danger" *ngIf="apellido_paterno.invalid && (apellido_paterno.dirty || apellido_paterno.touched)">
+                <div *ngIf="apellido_paterno.errors.required">
+                  Apellido paterno requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="apellido_M" class="col.form-label col-sm-2">Apellido Materno</label>
+          <label for="apellido_M" class="col-form-label col-sm-2">Apellido Materno</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.apellido_M" name="apellido_M">
+              <input type="text" class="form-control" [(ngModel)]="cliente.apellido_M" name="apellido_M" required #apellido_materno = "ngModel">
+              <div class="alert alert-danger" *ngIf="apellido_materno.invalid && (apellido_materno.dirty || apellido_materno.touched)">
+                <div *ngIf="apellido_materno.errors.required">
+                  Apellido materno requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="fecha_naci" class="col.form-label col-sm-2">Fecha de nacimiento</label>
+          <label for="fecha_naci" class="col-form-label col-sm-2">Fecha de nacimiento</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.fecha_naci" name="fecha_naci">
+              <input type="text" class="form-control" [(ngModel)]="cliente.fecha_naci" name="fecha_naci" required #fecha_nacimiento = "ngModel">
+              <div class="alert alert-danger" *ngIf="fecha_nacimiento.invalid && (fecha_nacimiento.dirty || fecha_nacimiento.touched)">
+                <div *ngIf="fecha_nacimiento.errors.required">
+                  Fecha de nacimiento requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="domicilio" class="col.form-label col-sm-2">Domicilio</label>
+          <label for="domicilio" class="col-form-label col-sm-2">Domicilio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.domicilio" name="domicilio">
+              <input type="text" class="form-control" [(ngModel)]="cliente.domicilio" name="domicilio" required #domicilio ="ngModel">
+              <div class="alert alert-danger" *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)">
+                <div *ngIf="domicilio.errors.required">
+                  domicilio requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="correo" class="col.form-label col-sm-2">Correo electronico</label>
+          <label for="correo" class="col-form-label col-sm-2">Correo electronico</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.correo" name="correo">
+              <input type="text" class="form-control" [(ngModel)]="cliente.correo" name="correo" required email #email="ngModel">
+              <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">
+                  Email requerido
+                </div>
+                <div *ngIf="email.errors.email">
+                  No es un formato de email
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="telefono" class="col.form-label col-sm-2">Número de telefono</label>
+          <label for="telefono" class="col-form-label col-sm-2">Número de telefono</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.telefono" name="telefono">
+              <input type="text" class="form-control" [(ngModel)]="cliente.telefono" name="telefono" required #telefono ="ngModel">
+              <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                <div *ngIf="telefono.errors.required">
+                  Telefono requerido
+                </div>
+              </div>
             </div>
         </div>
 
         <div class="form-group row mb-2">
           <div class="col-sm-1">
-            <button class="btn btn-primary" role="button" (click)="create()"*ngIf="!cliente.id else elseBlock">Crear</button>
+            <button class="btn btn-primary" role="button" (click)="create()"*ngIf="!cliente.id else elseBlock" [disabled]="!clienteForm.form.valid">Crear</button>
             <ng-template #elseBlock>
-              <button class="btn btn-primary" role="button" (click)="update()">Editar</button>
+              <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!clienteForm.form.valid">Editar</button>
             </ng-template>
           </div>
           <div class="col-sm-3">

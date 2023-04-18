@@ -1,0 +1,43 @@
+<div class="card border-primary mb-3">
+  <div class="card-header">Citas</div>
+  <div class="card-body text-secondary">
+    <h5 class="card-title">Listado de citas</h5>
+
+
+    <div class=" form-group row mb-2">
+      <div class=" col-sm-2 my-3 text-left">
+        <button class="btn btn-rounded btn-success" type="button" [routerLink]="">Crear Citas</button>
+      </div>
+    </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre del cliente</th>
+
+            <th>Nombre del empleado</th>
+            <th>Fecha y hora de la cita</th>
+            <th>Tipo de actividad</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citas">
+            <td>{{cita.id}}</td>
+            <td>{{cita.primer_nombre_cliente}} {{cita.segundo_nombre_cliente}} {{cita.apellido_P_cliente}} {{cita.apellido_M_cliente}} </td>
+            <td>{{cita.primer_nombre_empleado}} {{cita.segundo_nombre_empleado}} {{cita.apellido_P_empleado}} {{cita.apellido_M_empleado}} </td>
+            <td>{{cita.fecha_cita}}</td>
+            <td>{{cita.tipo_actividad}}</td>
+            <td>
+              <button type="button" name="button_editar_cita" [routerLink]="" class="btn btn-primary btn-sm">Editar</button>
+            </td>
+            <td>
+              <button type="button" name="button_eliminar_cita" (click)="delete(cita)" class="btn btn-danger btn-sm">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

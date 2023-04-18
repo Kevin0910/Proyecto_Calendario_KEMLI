@@ -8,20 +8,20 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { AutenticacionComponent } from './autenticacion/autenticacion.component';
 import { RouterModule, Routes, Route } from '@angular/router';
 import { ReporteComponent } from './reporte/reporte.component';
-import { CitasComponent } from './citas/citas.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { FormularioComponent } from './cliente/formulario.component';
+import { ForularioEmpleadoComponent } from './empleado/forulario-empleado.component';
+import { CitaComponent } from './cita/cita.component';
 
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ForularioEmpleadoComponent } from './empleado/forulario-empleado.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/clientes', pathMatch: 'full'},
   {path: 'clientes', component: ClienteComponent},
   {path: 'empleados', component: EmpleadoComponent},
   {path: 'reporte', component: ReporteComponent},
-  {path: 'citas', component: CitasComponent},
+  {path: 'cita', component: CitaComponent},
   {path: 'clientes/formulario', component: FormularioComponent},
   {path: 'clientes/formulario/:id', component: FormularioComponent},
   {path: 'empleados/formulario-empleados', component: ForularioEmpleadoComponent},
@@ -36,11 +36,10 @@ const routes: Routes = [
     ClienteComponent,
     AutenticacionComponent,
     ReporteComponent,
-    CitasComponent,
     EmpleadoComponent,
     FormularioComponent,
-    ForularioEmpleadoComponent
-  ],
+    ForularioEmpleadoComponent,
+    CitaComponent  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
