@@ -1,12 +1,18 @@
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">
+    {{err}}
+  </li>
+</ul>
+
 <div class="card bg-dark text-white">
   <div class="card-header ">{{titulo}}</div>
     <div class="card-body">
-      
+
       <form #clienteForm ="ngForm">
         <div class="form-group row mb-3">
           <label for="primer_nombre" class="col-form-label col-sm-2 ">Primer nombre</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)] ="cliente.primer_nombre" name="primer_nombre" required minlength="3" #primer_nombre="ngModel">
+            <input type="text" class="form-control" [(ngModel)] ="cliente.primer_nombre" name="primer_nombre"  #primer_nombre="ngModel"> <!-- required minlength="3" -->
             <div class="alert alert-danger" *ngIf="primer_nombre.invalid && (primer_nombre.dirty || primer_nombre.touched)">
               <div *ngIf="primer_nombre.errors.required">
                 Nombre requerido
@@ -28,7 +34,7 @@
         <div class="form-group row mb-3">
           <label for="apellido_P" class="col-form-label col-sm-2">Apellido Paterno</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.apellido_P" name="apellido_P" required #apellido_paterno = "ngModel">
+              <input type="text" class="form-control" [(ngModel)]="cliente.apellido_P" name="apellido_P" #apellido_paterno = "ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="apellido_paterno.invalid && (apellido_paterno.dirty || apellido_paterno.touched)">
                 <div *ngIf="apellido_paterno.errors.required">
                   Apellido paterno requerido
@@ -40,7 +46,7 @@
         <div class="form-group row mb-3">
           <label for="apellido_M" class="col-form-label col-sm-2">Apellido Materno</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.apellido_M" name="apellido_M" required #apellido_materno = "ngModel">
+              <input type="text" class="form-control" [(ngModel)]="cliente.apellido_M" name="apellido_M"  #apellido_materno = "ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="apellido_materno.invalid && (apellido_materno.dirty || apellido_materno.touched)">
                 <div *ngIf="apellido_materno.errors.required">
                   Apellido materno requerido
@@ -52,7 +58,7 @@
         <div class="form-group row mb-3">
           <label for="fecha_naci" class="col-form-label col-sm-2">Fecha de nacimiento</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.fecha_naci" name="fecha_naci" required #fecha_nacimiento = "ngModel">
+              <input type="text" class="form-control" [(ngModel)]="cliente.fecha_naci" name="fecha_naci" #fecha_nacimiento = "ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="fecha_nacimiento.invalid && (fecha_nacimiento.dirty || fecha_nacimiento.touched)">
                 <div *ngIf="fecha_nacimiento.errors.required">
                   Fecha de nacimiento requerido
@@ -64,7 +70,7 @@
         <div class="form-group row mb-3">
           <label for="domicilio" class="col-form-label col-sm-2">Domicilio</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.domicilio" name="domicilio" required #domicilio ="ngModel">
+              <input type="text" class="form-control" [(ngModel)]="cliente.domicilio" name="domicilio" #domicilio ="ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)">
                 <div *ngIf="domicilio.errors.required">
                   domicilio requerido
@@ -76,7 +82,7 @@
         <div class="form-group row mb-3">
           <label for="correo" class="col-form-label col-sm-2">Correo electronico</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.correo" name="correo" required email #email="ngModel">
+              <input type="text" class="form-control" [(ngModel)]="cliente.correo" name="correo" #email="ngModel"> <!-- required email-->
               <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
                 <div *ngIf="email.errors.required">
                   Email requerido
@@ -91,7 +97,7 @@
         <div class="form-group row mb-3">
           <label for="telefono" class="col-form-label col-sm-2">Número de telefono</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.telefono" name="telefono" required #telefono ="ngModel">
+              <input type="text" class="form-control" [(ngModel)]="cliente.telefono" name="telefono" #telefono ="ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
                 <div *ngIf="telefono.errors.required">
                   Telefono requerido

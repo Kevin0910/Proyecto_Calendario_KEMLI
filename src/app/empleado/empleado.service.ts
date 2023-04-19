@@ -27,6 +27,11 @@ export class EmpleadoService {
     create(empleado: Empleado): Observable <any>{
       return this.http.post<any>(this.urlEndPoint, empleado, {headers: this.HttpHeaders}).pipe(
         catchError(e => {
+
+          if(e.status == 400){
+            return throwError(() => e)
+          }
+
           console.error(e.error.mensaje);
           swal(e.error.mensaje, e.error.error, 'error');
           return throwError(() => e)
@@ -50,6 +55,11 @@ export class EmpleadoService {
     update(empleado:Empleado): Observable<any>{
       return this.http.put<any>(`${this.urlEndPoint}/${empleado.id}`, empleado, {headers:this.HttpHeaders}).pipe(
         catchError(e => {
+
+          if(e.status == 400){
+            return throwError(() => e)
+          }
+
           console.error(e.error.mensaje)
           swal(e.error.mensaje, e.error.error, 'error')
           return throwError (()=> e);

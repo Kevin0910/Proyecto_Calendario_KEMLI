@@ -48,6 +48,5 @@ export class ClienteComponent {
         )
       }
     })
-
   }
 }

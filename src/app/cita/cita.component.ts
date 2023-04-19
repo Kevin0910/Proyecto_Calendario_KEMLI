@@ -22,7 +22,7 @@ export class CitaComponent{
   delete(cita:Cita): void{
     swal({
       title: 'Esta seguro?',
-      //text: `¿Seguro que desea eliminar el cliente ${} ?`,
+      text: `¿Seguro que desea eliminar el cliente ${cita.primer_nombre_cliente} con ID:${cita.id} ?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -31,13 +31,12 @@ export class CitaComponent{
       confirmButtonText: 'Si, eliminar!'
     }).then((result) => {
       if (result.value) {
-
         this.citaService.delete(cita.id).subscribe(
           response => {
             this.citas = this.citas.filter(ci => ci !== cita)
             swal(
               'Cliente eliminado!',
-            //  `El cliente ${} ah sido eliminado`,
+              `El cliente ${cita.primer_nombre_cliente} ${cita.apellido_P_cliente} ah sido eliminado`,
               'success'
             )
           }

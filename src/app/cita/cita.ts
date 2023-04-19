@@ -1,6 +1,7 @@
 export class Cita {
   id: number;
   fecha_cita: string;
+  hora_cita: string;
   tipo_actividad: string;
   primer_nombre_cliente: string;
   segundo_nombre_cliente: string;

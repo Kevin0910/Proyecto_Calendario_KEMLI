@@ -6,7 +6,7 @@
 
     <div class=" form-group row mb-2">
       <div class=" col-sm-2 my-3 text-left">
-        <button class="btn btn-rounded btn-success" type="button" [routerLink]="">Crear Citas</button>
+        <button class="btn btn-rounded btn-success" type="button" [routerLink]="">Crear Cita</button>
       </div>
     </div>
 
@@ -15,9 +15,9 @@
           <tr>
             <th>ID</th>
             <th>Nombre del cliente</th>
-
             <th>Nombre del empleado</th>
-            <th>Fecha y hora de la cita</th>
+            <th>Fecha</th>
+            <th>Hora</th>
             <th>Tipo de actividad</th>
             <th>Editar</th>
             <th>Eliminar</th>
@@ -28,7 +28,8 @@
             <td>{{cita.id}}</td>
             <td>{{cita.primer_nombre_cliente}} {{cita.segundo_nombre_cliente}} {{cita.apellido_P_cliente}} {{cita.apellido_M_cliente}} </td>
             <td>{{cita.primer_nombre_empleado}} {{cita.segundo_nombre_empleado}} {{cita.apellido_P_empleado}} {{cita.apellido_M_empleado}} </td>
-            <td>{{cita.fecha_cita}}</td>
+            <td>{{cita.fecha_cita}}  </td>
+            <td>{{cita.hora_cita}}</td>
             <td>{{cita.tipo_actividad}}</td>
             <td>
               <button type="button" name="button_editar_cita" [routerLink]="" class="btn btn-primary btn-sm">Editar</button>
