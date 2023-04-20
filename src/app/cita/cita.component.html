@@ -21,6 +21,7 @@
             <th>Tipo de actividad</th>
             <th>Editar</th>
             <th>Eliminar</th>
+            <th>Check</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +37,12 @@
             </td>
             <td>
               <button type="button" name="button_eliminar_cita" (click)="delete(cita)" class="btn btn-danger btn-sm">Eliminar</button>
+            </td>
+            <td>
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                OK
+                </label>
             </td>
           </tr>
         </tbody>
