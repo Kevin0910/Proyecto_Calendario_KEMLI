@@ -1,3 +1,5 @@
+<datalle-cliente *ngIf="clienteSeleccionado" [cliente] = "clienteSeleccionado"> </datalle-cliente>
+
 <div class="card border-primary mb-3">
   <div class="card-header">Clientes</div>
   <div class="card-body text-secondary">
@@ -20,6 +22,7 @@
             <th>Domicilio</th>
             <th>Correo</th>
             <th>Telefono</th>
+            <th>Detalle</th>
             <th>Editar</th>
             <th>Eliminar</th>
           </tr>
@@ -34,6 +37,9 @@
             <td>{{cliente.domicilio}}</td>
             <td>{{cliente.correo}}</td>
             <td>{{cliente.telefono}}</td>
+            <td>
+              <button type="button" name="button_detalle_cliente" (click)="abrirModal(cliente)" class="btn btn-info btn-sm">Detalle</button>
+            </td>
             <td>
               <button type="button" name="button_editar_cliente" [routerLink]="['/clientes/formulario', cliente.id]" class="btn btn-primary btn-sm">Editar</button>
             </td>

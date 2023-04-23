@@ -8,5 +8,5 @@ export class Empleado{
   domicilio: string;
   correo: string;
   telefono: string;
-  tipo_empleado: string;
+  tipo_empleado: String;
 }

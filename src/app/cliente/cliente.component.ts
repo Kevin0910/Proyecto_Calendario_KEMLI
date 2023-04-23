@@ -12,6 +12,7 @@ import swal from 'sweetalert2';
 
 export class ClienteComponent {
   clientes: Cliente [];
+  clienteSeleccionado: Cliente;
 
   constructor(private clienteService:ClienteService){
 
@@ -48,5 +49,9 @@ export class ClienteComponent {
         )
       }
     })
+  }
+
+  abrirModal (cliente: Cliente){
+    this.clienteSeleccionado = cliente;
   }
 }

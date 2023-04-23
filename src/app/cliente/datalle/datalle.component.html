@@ -1,0 +1,21 @@
+<div class="card bg-dark text-white">
+  <div class="card-header bg-primary">{{titulo}}</div>
+    <div class="card-body">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-6 ">
+            <ul *ngIf="cliente" class="list-group text-bg-dark mb-2">
+              <li class="list-group-item"> Primer nombre : {{cliente.primer_nombre}}</li>
+              <li class="list-group-item"> Segundo nombre: {{cliente.segundo_nombre}} </li>
+              <li class="list-group-item"> Apellido paterno: {{cliente.apellido_P}} </li>
+              <li class="list-group-item"> {{cliente.apellido_M}} </li>
+              <li class="list-group-item"> {{cliente.fecha_naci}} </li>
+              <li class="list-group-item"> {{cliente.domicilio}} </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>

@@ -16,6 +16,7 @@ import { CitaComponent } from './cita/cita.component';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FormularioCitaComponent } from './cita/formulario-cita.component';
+import { DatalleComponent } from './cliente/datalle/datalle.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/clientes', pathMatch: 'full'},
@@ -41,7 +42,8 @@ const routes: Routes = [
     FormularioComponent,
     ForularioEmpleadoComponent,
     CitaComponent,
-    FormularioCitaComponent  ],
+    FormularioCitaComponent,
+    DatalleComponent  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
