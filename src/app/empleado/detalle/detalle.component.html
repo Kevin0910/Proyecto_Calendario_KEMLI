@@ -37,11 +37,16 @@
                 <li class="list-group-item">Numero de telefono <i class="bi bi-telephone"></i></li>
                 <li class="list-group-item"> {{empleado.telefono}} </li>
               </ul>
+              <ul>
+                <li class="list-group-item">Tipo de empleado </li>
+                <li class="list-group-item"> {{ empleado.tipoDeEmpleado.tipoEmpleado }} </li>
+              </ul>
             </div>
           </div>
         </div>
 
       </div>
+
       <div class="modal-footer">
         <button type="button" name="button_editar_empleado" [routerLink]="['/empleados/formulario-empleados', empleado.id]" class="btn btn-primary " data-bs-dismiss="modal">Editar <i class="bi bi-database-fill-gear"></i></button>
         <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar <i class="bi bi-x-circle"></i></button>

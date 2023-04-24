@@ -1,3 +1,5 @@
+import { TipoEmpl } from "./tipoEmpl";
+
 export class Empleado{
   id: number;
   primer_nombre: string;
@@ -8,5 +10,5 @@ export class Empleado{
   domicilio: string;
   correo: string;
   telefono: string;
-  tipo_empleado: String;
+  tipoDeEmpleado: TipoEmpl;
 }

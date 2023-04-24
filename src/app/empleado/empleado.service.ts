@@ -6,6 +6,7 @@ import { Observable, throwError } from 'rxjs'  ;
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { TipoEmpl } from './tipoEmpl';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class EmpleadoService {
 
   constructor(private http: HttpClient,
               private router: Router) {}
+
+  //Arreglo de tipo de empleado
+    getTipoEmpleados(): Observable<TipoEmpl[]>{
+      return this.http.get<TipoEmpl[]>(this.urlEndPoint+"/tipoEmpleados")
+    }
 
   //OBTENER TODOS LOS CLIENTES
     getEmpleados(): Observable <Empleado[]>{

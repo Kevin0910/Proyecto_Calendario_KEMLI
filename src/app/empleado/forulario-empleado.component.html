@@ -102,14 +102,11 @@
         </div>
 
         <div class="form-group row mb-3">
-          <label for="tipo_empleado" class="col-form-label col-sm-2">Tipo de empleado <i class="bi bi-briefcase"></i></label>
+          <label for="tipoDeEmpleado" class="col-form-label col-sm-2">Tipo de empleado <i class="bi bi-briefcase"></i></label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.tipo_empleado" name="tipo_empleado"  #tipo_empleado ="ngModel"> <!--required-->
-              <div class="alert alert-danger" *ngIf="tipo_empleado.invalid && (tipo_empleado.dirty || tipo_empleado.touched)">
-                <div *ngIf="tipo_empleado.errors.required">
-                  Tipo de empleado requerido
-                </div>
-              </div>
+              <select class="form-control" [(ngModel)]="empleado.tipoDeEmpleado" name="tipo_empleado"  style="width: 500xp;">
+                <option *ngFor="let tipoDeEmpleado of tipoEmpleados" [ngValue]="tipoDeEmpleado"> {{tipoDeEmpleado.tipoEmpleado}} </option>
+              </select>
             </div>
         </div>
 

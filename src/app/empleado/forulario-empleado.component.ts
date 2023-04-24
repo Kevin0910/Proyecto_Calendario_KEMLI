@@ -4,6 +4,7 @@ import { EmpleadoService } from './empleado.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import swal from 'sweetalert2';
+import { TipoEmpl } from './tipoEmpl';
 
 @Component({
   selector: 'app-forulario-empleado',
@@ -11,9 +12,10 @@ import swal from 'sweetalert2';
 })
 export class ForularioEmpleadoComponent {
 
-  public empleado: Empleado = new Empleado();
   public titulo: string = "Crear empleado";
+  public empleado: Empleado = new Empleado();
   public errores: string[];
+  tipoEmpleados: TipoEmpl[];
 
 
   constructor(private empleadoService: EmpleadoService,
@@ -22,13 +24,16 @@ export class ForularioEmpleadoComponent {
 
   ngOnInit() {
   this.cargarEmpleado();
+  //Cargar tipo de empleados
+  this.empleadoService.getTipoEmpleados().subscribe(tipoEmpleados =>  this.tipoEmpleados = tipoEmpleados  );
+
   }
 
   cargarEmpleado():void{
     this.activatedRoute.params.subscribe(params => {
       let id = params['id']
       if(id){
-        this.empleadoService.getEmpleado(id).subscribe( (empleado) => this.empleado = empleado)
+        this.empleadoService.getEmpleado(id).subscribe( (empleado) => this.empleado = empleado);
       }
     })
   }
