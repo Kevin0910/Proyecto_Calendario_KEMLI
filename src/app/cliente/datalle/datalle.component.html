@@ -2,20 +2,39 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header bg-dark text-white">
-        <h1 class="modal-title fs-5"> {{titulo}} </h1>
+        <h1 class="modal-title fs-5"> {{titulo}} <i class="bi bi-person"></i> </h1>
        <!-- <button (click)="cerrarModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  -->
       </div>
       <div class="modal-body">
         <div class="container">
           <div class="row">
-            <div class="col-8 ">
-              <ul *ngIf="cliente" class="list-group mb-2 ">
-                <li class="list-group-item active"> {{cliente.primer_nombre}} {{cliente.segundo_nombre}}</li>
+            <div class="col-8">
+              <ul *ngIf="cliente">
+                <li class="list-group-item">Nombre: </li>
+                <li class="list-group-item"> {{cliente.primer_nombre}} {{cliente.segundo_nombre}}</li>
+              </ul>
+              <ul >
+                <li class ="list-group-item"> Apellido paterno</li>
                 <li class="list-group-item"> {{cliente.apellido_P}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item"> Apellido paterno</li>
                 <li class="list-group-item"> {{cliente.apellido_M}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item"> Fecha de nacimiento</li>
                 <li class="list-group-item"> {{cliente.fecha_naci}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item">Dirección</li>
                 <li class="list-group-item"> {{cliente.domicilio}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item">Email</li>
                 <li class="list-group-item"> {{cliente.correo}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item">Numero de telefono</li>
                 <li class="list-group-item"> {{cliente.telefono}} </li>
               </ul>
             </div>
