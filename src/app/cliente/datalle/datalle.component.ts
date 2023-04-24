@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Cliente } from '../cliente';
 import { ClienteService } from '../cliente.service';
-import { ActivatedRoute } from '@angular/router';
+import { ModalService } from './modal.service';
 
 @Component({
   selector: 'datalle-cliente',
@@ -13,8 +13,12 @@ export class DatalleComponent {
   @Input() cliente: Cliente;
 
   constructor(private clienteService: ClienteService,
-              private activatedRoute: ActivatedRoute){}
+              public modalService: ModalService){}
 
   ngOnInit() {  }
 
+
+  cerrarModal(){
+    this.modalService.cerrarModal();
+  }
 }

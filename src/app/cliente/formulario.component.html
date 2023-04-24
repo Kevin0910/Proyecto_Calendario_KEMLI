@@ -108,13 +108,13 @@
 
         <div class="form-group row mb-2">
           <div class="col-sm-1">
-            <button class="btn btn-primary" role="button" (click)="create()"*ngIf="!cliente.id else elseBlock" [disabled]="!clienteForm.form.valid">Crear</button>
+            <button class="btn btn-primary" role="button" (click)="create()"*ngIf="!cliente.id else elseBlock" [disabled]="!clienteForm.form.valid">Crear <i class="bi bi-plus-circle"></i></button>
             <ng-template #elseBlock>
-              <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!clienteForm.form.valid">Editar</button>
+              <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!clienteForm.form.valid">Editar <i class="bi bi-plus-circle"></i></button>
             </ng-template>
           </div>
           <div class="col-sm-3">
-              <button  class="btn btn-danger" role="button" routerLink="/clientes">Cancelar</button>
+              <button  class="btn btn-danger" role="button" routerLink="/clientes">Cancelar <i class="bi bi-x-circle"></i> </button>
           </div>
         </div>
     </form>
