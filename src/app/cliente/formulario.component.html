@@ -58,12 +58,7 @@
         <div class="form-group row mb-3">
           <label for="fecha_naci" class="col-form-label col-sm-2">Fecha de nacimiento</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cliente.fecha_naci" name="fecha_naci" #fecha_nacimiento = "ngModel"> <!-- required -->
-              <div class="alert alert-danger" *ngIf="fecha_nacimiento.invalid && (fecha_nacimiento.dirty || fecha_nacimiento.touched)">
-                <div *ngIf="fecha_nacimiento.errors.required">
-                  Fecha de nacimiento requerido
-                </div>
-              </div>
+              <input type="date" class="form-control" [(ngModel)]="cliente.fecha_naci" name="fecha_naci" #fecha_nacimiento = "ngModel"> <!-- required -->
             </div>
         </div>
 

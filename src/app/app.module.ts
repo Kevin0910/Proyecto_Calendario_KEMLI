@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,11 @@ import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FormularioCitaComponent } from './cita/formulario-cita.component';
 import { DatalleComponent } from './cliente/datalle/datalle.component';
+import { DetalleComponent } from './empleado/detalle/detalle.component';
+
+import { registerLocaleData } from '@angular/common';
+import localeES from '@angular/common/locales/es';
+registerLocaleData(localeES, 'es')
 
 const routes: Routes = [
   {path: '', redirectTo: '/clientes', pathMatch: 'full'},
@@ -43,14 +48,15 @@ const routes: Routes = [
     ForularioEmpleadoComponent,
     CitaComponent,
     FormularioCitaComponent,
-    DatalleComponent  ],
+    DatalleComponent,
+    DetalleComponent  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'es'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
