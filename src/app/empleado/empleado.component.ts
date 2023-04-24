@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Empleado } from './empleado';
 import { EmpleadoService } from './empleado.service';
 import swal from 'sweetalert2';
+import { ModalService } from './detalle/modal.service';
 
 @Component({
   selector: 'app-empleado',
@@ -11,8 +12,10 @@ import swal from 'sweetalert2';
 export class EmpleadoComponent {
 
   empleados: Empleado [];
+  empleadoSeleccionado: Empleado;
 
-  constructor(private empleadoServicio:EmpleadoService){  }
+  constructor(private empleadoServicio:EmpleadoService,
+              public modalService: ModalService){  }
 
   ngOnInit(): void {
     this.empleadoServicio.getEmpleados().subscribe(
@@ -46,4 +49,10 @@ export class EmpleadoComponent {
         }
       })
   }
+
+  abrirModal (empleado: Empleado){
+    this.empleadoSeleccionado = empleado;
+    this.modalService.abrirModal();
+  }
+
 }

@@ -9,7 +9,7 @@ import { ModalService } from './modal.service';
   styleUrls: ['./datalle.component.css']
 })
 export class DatalleComponent {
-  titulo: String = 'Detalle del cliente';
+  titulo: string = 'Detalle del cliente';
   @Input() cliente: Cliente;
 
   constructor(private clienteService: ClienteService,

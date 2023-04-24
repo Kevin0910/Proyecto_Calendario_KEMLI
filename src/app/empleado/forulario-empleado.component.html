@@ -5,7 +5,7 @@
 </ul>
 
 <div class="card bg-dark text-white">
-  <div class="card-header ">{{titulo}}</div>
+  <div class="card-header ">{{titulo}} <i class="bi bi-person"></i></div>
     <div class="card-body">
 
       <form #empleadoForm = "ngForm">
@@ -56,19 +56,14 @@
         </div>
 
         <div class="form-group row mb-3">
-          <label for="fecha_naci" class="col-form-label col-sm-2">Fecha de nacimiento</label>
+          <label for="fecha_naci" class="col-form-label col-sm-2">Fecha de nacimiento <i class="bi bi-balloon"></i></label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.fecha_naci" name="fecha_naci"  #fecha_nacimiento = "ngModel"> <!--required -->
-              <div class="alert alert-danger" *ngIf="fecha_nacimiento.invalid && (fecha_nacimiento.dirty || fecha_nacimiento.touched)">
-                <div *ngIf="fecha_nacimiento.errors.required">
-                  Fecha de nacimiento requerido
-                </div>
-              </div>
+              <input type="date" class="form-control" [(ngModel)]="empleado.fecha_naci" name="fecha_naci"  #fecha_nacimiento = "ngModel"> <!--required -->
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="domicilio" class="col-form-label col-sm-2">Domicilio</label>
+          <label for="domicilio" class="col-form-label col-sm-2">Domicilio <i class="bi bi-geo-alt"></i></label>
             <div class="col-sm-6">
               <input type="text" class="form-control" [(ngModel)]="empleado.domicilio" name="domicilio"  #domicilio ="ngModel"> <!--required -->
               <div class="alert alert-danger" *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)">
@@ -80,7 +75,7 @@
         </div>
 
         <div class="form-group row mb-3">
-          <label for="correo" class="col-form-label col-sm-2">Correo electronico</label>
+          <label for="correo" class="col-form-label col-sm-2">Correo electronico <i class="bi bi-envelope-at-fill"></i></label>
             <div class="col-sm-6">
               <input type="text" class="form-control" [(ngModel)]="empleado.correo" name="correo"  #email="ngModel"> <!-- required email -->
               <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -95,7 +90,7 @@
         </div>
 
         <div class="form-group row mb-3">
-          <label for="telefono" class="col-form-label col-sm-2">Número de telefono</label>
+          <label for="telefono" class="col-form-label col-sm-2">Número de telefono <i class="bi bi-telephone-plus-fill"></i></label>
             <div class="col-sm-6">
               <input type="text" class="form-control" [(ngModel)]="empleado.telefono" name="telefono"  #telefono ="ngModel"> <!--required-->
               <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
@@ -107,7 +102,7 @@
         </div>
 
         <div class="form-group row mb-3">
-          <label for="tipo_empleado" class="col-form-label col-sm-2">Tipo de empleado</label>
+          <label for="tipo_empleado" class="col-form-label col-sm-2">Tipo de empleado <i class="bi bi-briefcase"></i></label>
             <div class="col-sm-6">
               <input type="text" class="form-control" [(ngModel)]="empleado.tipo_empleado" name="tipo_empleado"  #tipo_empleado ="ngModel"> <!--required-->
               <div class="alert alert-danger" *ngIf="tipo_empleado.invalid && (tipo_empleado.dirty || tipo_empleado.touched)">
@@ -120,13 +115,13 @@
 
         <div class="form-group row mb-2">
           <div class="col-sm-1">
-            <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!empleado.id else elseBlock" [disabled]="!empleadoForm.form.valid">Crear</button>
+            <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!empleado.id else elseBlock" [disabled]="!empleadoForm.form.valid">Crear <i class="bi bi-plus-circle"></i></button>
             <ng-template #elseBlock>
-              <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!empleadoForm.form.valid">Editar</button>
+              <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!empleadoForm.form.valid">Editar <i class="bi bi-plus-circle"></i></button>
             </ng-template>
           </div>
           <div class="col-sm-3">
-              <button  class="btn btn-danger " role="button" routerLink="/empleados">Cancelar</button>
+              <button  class="btn btn-danger " role="button" routerLink="/empleados">Cancelar <i class="bi bi-x-circle"></i></button>
           </div>
         </div>
     </form>

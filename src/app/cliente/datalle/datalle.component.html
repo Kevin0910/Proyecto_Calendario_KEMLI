@@ -10,7 +10,7 @@
           <div class="row">
             <div class="col-8">
               <ul *ngIf="cliente">
-                <li class="list-group-item">Nombre: </li>
+                <li class="list-group-item">Nombre </li>
                 <li class="list-group-item"> {{cliente.primer_nombre}} {{cliente.segundo_nombre}}</li>
               </ul>
               <ul >
@@ -22,19 +22,19 @@
                 <li class="list-group-item"> {{cliente.apellido_M}} </li>
               </ul>
               <ul>
-                <li class="list-group-item"> Fecha de nacimiento</li>
+                <li class="list-group-item"> Fecha de nacimiento <i class="bi bi-balloon"></i></li>
                 <li class="list-group-item"> {{cliente.fecha_naci |date:"EEEE dd, MMMM yyyy"}} </li>
               </ul>
               <ul>
-                <li class="list-group-item">Dirección</li>
+                <li class="list-group-item">Dirección <i class="bi bi-geo-alt"></i></li>
                 <li class="list-group-item"> {{cliente.domicilio}} </li>
               </ul>
               <ul>
-                <li class="list-group-item">Email</li>
+                <li class="list-group-item">Email <i class="bi bi-envelope-at-fill"></i></li>
                 <li class="list-group-item"> {{cliente.correo}} </li>
               </ul>
               <ul>
-                <li class="list-group-item">Numero de telefono</li>
+                <li class="list-group-item">Numero de telefono <i class="bi bi-telephone"></i></li>
                 <li class="list-group-item"> {{cliente.telefono}} </li>
               </ul>
             </div>
