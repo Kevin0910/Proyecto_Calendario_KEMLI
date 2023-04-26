@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cita } from './cita';
 import { CitaService } from './cita.service';
-import { CITAS } from './cita.json';
 import swal from 'sweetalert2';
 
 @Component({
@@ -22,7 +21,7 @@ export class CitaComponent{
   delete(cita:Cita): void{
     swal({
       title: 'Esta seguro?',
-      text: `¿Seguro que desea eliminar el cliente ${cita.primer_nombre_cliente} con ID:${cita.id} ?`,
+      text: `¿Seguro que desea eliminar el cliente ${cita.cliente.primer_nombre} con ID:${cita.cliente.id} ?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -36,7 +35,7 @@ export class CitaComponent{
             this.citas = this.citas.filter(ci => ci !== cita)
             swal(
               'Cliente eliminado!',
-              `El cliente ${cita.primer_nombre_cliente} ${cita.apellido_P_cliente} ah sido eliminado`,
+              `El cliente ${cita.cliente.primer_nombre} ${cita.cliente.apellido_P} ah sido eliminado`,
               'success'
             )
           }

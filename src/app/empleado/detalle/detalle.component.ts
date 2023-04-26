@@ -18,7 +18,7 @@ export class DetalleComponent {
   ngOnInit(){ }
 
   cerrarModal(){
-    this.modalService.cerrarModal();
+    this.modalService.cerrarModalEmpleado();
   }
 
 }

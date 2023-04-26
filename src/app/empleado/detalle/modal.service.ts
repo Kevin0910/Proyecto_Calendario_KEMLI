@@ -10,12 +10,12 @@ export class ModalService {
 
   constructor() { }
 
-  abrirModal(){
+  abrirModalEmpleado(){
     this.modal = true;
   }
 
   //Metodo para cerrar el modal
-  cerrarModal(){
+  cerrarModalEmpleado(){
     this.modal = false;
   }
 

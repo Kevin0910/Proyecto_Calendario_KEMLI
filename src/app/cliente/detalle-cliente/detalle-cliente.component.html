@@ -1,9 +1,9 @@
-<div *ngIf="modalService.modal" class="modal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
+<div *ngIf="modalClienteService.modal" class="modal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header bg-dark text-white">
         <h1 class="modal-title fs-5"> {{titulo}} <i class="bi bi-person"></i> </h1>
-       <!-- <button (click)="cerrarModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  -->
+      <!-- <button (click)="cerrarModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  -->
       </div>
       <div class="modal-body">
         <div class="container">
@@ -40,8 +40,8 @@
             </div>
           </div>
         </div>
-
       </div>
+
       <div class="modal-footer">
         <button type="button" name="button_editar_cliente" [routerLink]="['/clientes/formulario', cliente.id]" class="btn btn-primary " data-bs-dismiss="modal">Editar <i class="bi bi-database-fill-gear"></i></button>
         <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar <i class="bi bi-x-circle"></i></button>

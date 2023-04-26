@@ -9,18 +9,18 @@ import { AutenticacionComponent } from './autenticacion/autenticacion.component'
 import { RouterModule, Routes, Route } from '@angular/router';
 import { ReporteComponent } from './reporte/reporte.component';
 import { EmpleadoComponent } from './empleado/empleado.component';
-import { FormularioComponent } from './cliente/formulario.component';
-import { ForularioEmpleadoComponent } from './empleado/forulario-empleado.component';
+import { FormularioComponent } from './cliente/formulario/formulario.component';
+import { ForularioEmpleadoComponent } from './empleado/formulario/forulario-empleado.component';
 import { CitaComponent } from './cita/cita.component';
 
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { FormularioCitaComponent } from './cita/formulario-cita.component';
-import { DatalleComponent } from './cliente/datalle/datalle.component';
+import { FormularioCitaComponent } from './cita/formulario/formulario-cita.component';
 import { DetalleComponent } from './empleado/detalle/detalle.component';
 
 import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es';
+import { DetalleClienteComponent } from './cliente/detalle-cliente/detalle-cliente.component';
 registerLocaleData(localeES, 'es')
 
 const routes: Routes = [
@@ -48,8 +48,9 @@ const routes: Routes = [
     ForularioEmpleadoComponent,
     CitaComponent,
     FormularioCitaComponent,
-    DatalleComponent,
-    DetalleComponent  ],
+    DetalleComponent,
+    DetalleClienteComponent
+    ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),

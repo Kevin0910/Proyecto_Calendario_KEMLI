@@ -20,10 +20,10 @@ export class CitaService {
 
 
   getCitas(): Observable<Cita[]>{
-    //return of(CITAS)
     return this.http.get<Cita[]>(this.urlEndPoint);
   }
 
+  //CREAR CITAS
   create(cita: Cita): Observable<any>{
     return this.http.post<any>(this.urlEndPoint, cita, {headers:this.HttpHeaders}).pipe(
       catchError(e => {
@@ -39,6 +39,7 @@ export class CitaService {
     );
   }
 
+  //OBTENER CITAS
   getCita(id): Observable<any>{
     return this.http.get<any>(`${this.urlEndPoint}/${id}`).pipe(
       catchError(e => {
@@ -50,6 +51,7 @@ export class CitaService {
     );
   }
 
+  //MODIFICAR CITAS
   update(cita: Cita): Observable<any>{
     return this.http.put<any>(`${this.urlEndPoint}/${cita.id}`, cita, {headers:this.HttpHeaders}).pipe(
         catchError(e => {
@@ -66,6 +68,7 @@ export class CitaService {
   }
 
 
+  //ELIMINAR CITAS
   delete(id:number): Observable<any>{
     return this.http.delete<any>(`${this.urlEndPoint}/${id}`, {headers:this.HttpHeaders}).pipe(
       catchError(e => {

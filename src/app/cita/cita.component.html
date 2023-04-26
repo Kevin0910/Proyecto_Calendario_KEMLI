@@ -13,36 +13,25 @@
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nombre del cliente</th>
-            <th>Nombre del empleado</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Tipo de actividad</th>
+            <th>ID CITA</th>
+            <th>ID CLIENTE</th>
+            <th>ID EMPLEADO</th>
+            <th>Detalle de la cita <i class="bi bi-person-lines-fill"></i></th>
             <th>Editar</th>
             <th>Eliminar</th>
-            <th>Check</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let cita of citas">
             <td>{{cita.id}}</td>
-            <td>{{cita.primer_nombre_cliente}} {{cita.segundo_nombre_cliente}} {{cita.apellido_P_cliente}} {{cita.apellido_M_cliente}} </td>
-            <td>{{cita.primer_nombre_empleado}} {{cita.segundo_nombre_empleado}} {{cita.apellido_P_empleado}} {{cita.apellido_M_empleado}} </td>
-            <td>{{cita.fecha_cita}}  </td>
-            <td>{{cita.hora_cita}}</td>
-            <td>{{cita.tipo_actividad}}</td>
+            <td>{{cita.empleado.id}} </td>
+            <td>{{cita.empleado.id}} </td>
+            <td> <i type="button" class="bi bi-person-vcard btn btn-primary btn btn bg-primary "></i> Detalle</td>
             <td>
               <button type="button" name="button_editar_cita" [routerLink]="" class="btn btn-primary btn-sm">Editar</button>
             </td>
             <td>
               <button type="button" name="button_eliminar_cita" (click)="delete(cita)" class="btn btn-danger btn-sm">Eliminar</button>
-            </td>
-            <td>
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                OK
-                </label>
             </td>
           </tr>
         </tbody>

@@ -104,7 +104,7 @@
         <div class="form-group row mb-3">
           <label for="tipoDeEmpleado" class="col-form-label col-sm-2">Tipo de empleado <i class="bi bi-briefcase"></i></label>
             <div class="col-sm-6">
-              <select class="form-control" [(ngModel)]="empleado.tipoDeEmpleado" name="tipo_empleado"  style="width: 500xp;">
+              <select [compareWith]="compararTipoEmpleados" class="form-control" [(ngModel)]="empleado.tipoDeEmpleado" name="tipo_empleado"  style="width: 500xp;">
                 <option *ngFor="let tipoDeEmpleado of tipoEmpleados" [ngValue]="tipoDeEmpleado"> {{tipoDeEmpleado.tipoEmpleado}} </option>
               </select>
             </div>

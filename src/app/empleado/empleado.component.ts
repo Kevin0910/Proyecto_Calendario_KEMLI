@@ -10,7 +10,6 @@ import { ModalService } from './detalle/modal.service';
 })
 
 export class EmpleadoComponent {
-
   empleados: Empleado [];
   empleadoSeleccionado: Empleado;
 
@@ -52,7 +51,6 @@ export class EmpleadoComponent {
 
   abrirModal (empleado: Empleado){
     this.empleadoSeleccionado = empleado;
-    this.modalService.abrirModal();
+    this.modalService.abrirModalEmpleado();
   }
-
 }

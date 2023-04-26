@@ -3,19 +3,20 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ModalService {
+export class ModalClienteService {
 
   modal: boolean = false;
 
   constructor() { }
 
   //Metodo para abrir el modal
-  abrirModal(){
+  abrirModalCliente(){
     this.modal = true;
   }
 
   //Metodo para cerrar el modal
-  cerrarModal(){
+  cerrarModalCliente(){
     this.modal = false;
   }
 }
+

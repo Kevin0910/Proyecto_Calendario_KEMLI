@@ -4,7 +4,7 @@ import { Cliente } from './cliente';
 import { ClienteService } from './cliente.service';
 
 import swal from 'sweetalert2';
-import { ModalService } from './datalle/modal.service';
+import { ModalClienteService } from './detalle-cliente/modal-cliente.service';
 
 @Component({
   selector: 'app-cliente',
@@ -16,7 +16,7 @@ export class ClienteComponent {
   clienteSeleccionado: Cliente;
 
   constructor(private clienteService:ClienteService,
-              public modalService: ModalService){
+              public modalClienteService: ModalClienteService){
 
   }
 
@@ -55,6 +55,6 @@ export class ClienteComponent {
 
   abrirModal (cliente: Cliente){
     this.clienteSeleccionado = cliente;
-    this.modalService.abrirModal();
+    this.modalClienteService.abrirModalCliente();
   }
 }
