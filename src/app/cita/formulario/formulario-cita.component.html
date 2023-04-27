@@ -1,0 +1,64 @@
+<ul class="alert alert-danger" *ngIf="errores?.length > 0">
+  <li *ngFor="let err of errores">
+    {{err}}
+  </li>
+</ul>
+
+<div class="card bg-dark text-white">
+  <div class="card-header ">{{titulo}} <i class="bi bi-person"></i></div>
+    <div class="card-body">
+
+      <form #citaForm ="ngForm">
+
+        <div class="form-group row mb-3">
+          <label for="empleado" class="col-form-label col-sm-2">Empleado <i class="bi bi-briefcase"></i></label>
+            <div class="col-sm-6">
+              <select [compareWith]="compararEmpleado" class="form-control" [(ngModel)]="cita.empleado" name="id_empleado"  style="width: 500xp;">
+                <option *ngFor="let empleado of empleados" [ngValue]="empleado"> {{empleado.primer_nombre}} {{empleado.segundo_nombre}} {{empleado.apellido_P}} {{empleado.apellido_M}} ( {{empleado.tipoDeEmpleado.tipoEmpleado}} )</option>
+              </select>
+            </div>
+        </div>
+
+
+        <div class="form-group row mb-3">
+          <label for="tipoDeActividad" class="col-form-label col-sm-2">Tipo de actividad <i class="bi bi-briefcase"></i></label>
+            <div class="col-sm-6">
+              <select [compareWith]="compararTipoActividad" class="form-control" [(ngModel)]="cita.tipoDeActividad" name="tipo_actividad"  style="width: 500xp;">
+                <option *ngFor="let tipoDeActividad of tipoActividad" [ngValue]="tipoDeActividad"> {{tipoDeActividad.tipoActividad}} </option>
+              </select>
+            </div>
+        </div>
+
+        <div class="form-group row mb-3">
+          <label for="fecha_cita" class="col-form-label col-sm-2">Fecha cita <i class="bi bi-balloon"></i></label>
+            <div class="col-sm-6">
+              <input type="date" class="form-control" [(ngModel)]="cita.fecha_cita" name="fecha_cita" #fecha_cita = "ngModel"> <!-- required -->
+            </div>
+        </div>
+
+        <div class="form-group row mb-3">
+          <label for="hora_cita" class="col-form-label col-sm-2">Hora de cita <i class="bi bi-geo-alt"></i></label>
+            <div class="col-sm-6">
+              <input type="time" class="form-control" [(ngModel)]="cita.hora_cita" name="cita_hora" #hora_cita="ngModel"> <!-- required -->
+              <div class="alert alert-danger" *ngIf="hora_cita.invalid && (hora_cita.dirty || hora_cita.touched)">
+                <div *ngIf="hora_cita.errors.required">
+                  cita requerido
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <div class="col-sm-1">
+            <button class="btn btn-primary" role="button" (click)="create()"*ngIf="!cita.id else elseBlock" [disabled]="!citaForm.form.valid">Crear <i class="bi bi-plus-circle"></i></button>
+            <ng-template #elseBlock>
+              <button class="btn btn-primary" role="button" (click)="update()" [disabled]="!citaForm.form.valid">Editar <i class="bi bi-plus-circle"></i></button>
+            </ng-template>
+          </div>
+          <div class="col-sm-3">
+              <button  class="btn btn-danger" role="button" routerLink="/cita">Cancelar <i class="bi bi-x-circle"></i> </button>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

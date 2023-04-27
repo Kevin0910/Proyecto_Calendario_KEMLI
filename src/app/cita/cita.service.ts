@@ -5,6 +5,7 @@ import { Observable, catchError, of, throwError } from 'rxjs';
 import { CITAS } from './cita.json';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { TipoActividad } from './tipoActividad';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,12 @@ export class CitaService {
   constructor(private http:HttpClient,
               private router: Router) { }
 
+
+  getTipoActividades(): Observable<TipoActividad[]>{
+    return this.http.get<TipoActividad[]>(this.urlEndPoint+"/tipoActividades");
+  }
+
+  
 
   getCitas(): Observable<Cita[]>{
     return this.http.get<Cita[]>(this.urlEndPoint);

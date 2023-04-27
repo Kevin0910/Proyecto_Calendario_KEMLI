@@ -6,7 +6,7 @@
 
     <div class=" form-group row mb-2">
       <div class=" col-sm-2 my-3 text-left">
-        <button class="btn btn-rounded btn-success" type="button" [routerLink]="">Crear Cita</button>
+        <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/citas/formulario-cita']">Crear Cita <i class="bi bi-database-fill-add"></i></button>
       </div>
     </div>
 
@@ -18,13 +18,13 @@
             <th>ID EMPLEADO</th>
             <th>Detalle de la cita <i class="bi bi-person-lines-fill"></i></th>
             <th>Editar</th>
-            <th>Eliminar</th>
+            <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let cita of citas">
             <td>{{cita.id}}</td>
-            <td>{{cita.empleado.id}} </td>
+            <td>{{cita.cliente.id}} </td>
             <td>{{cita.empleado.id}} </td>
             <td> <i type="button" class="bi bi-person-vcard btn btn-primary btn btn bg-primary "></i> Detalle</td>
             <td>

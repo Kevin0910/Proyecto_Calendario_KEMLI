@@ -1,3 +1,4 @@
+import { EmpleadoService } from './../../empleado/empleado.service';
 import { Cita } from '../cita';
 import { CitaService } from '../cita.service';
 
@@ -6,6 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Cliente } from 'src/app/cliente/cliente';
 
 import swal from 'sweetalert2';
+import { TipoActividad } from '../tipoActividad';
+import { Empleado } from 'src/app/empleado/empleado';
+import { ClienteService } from 'src/app/cliente/cliente.service';
 
 @Component({
   selector: 'app-formulario-cita',
@@ -16,15 +20,21 @@ export class FormularioCitaComponent {
   public cita: Cita = new Cita();
   public titulo: string ='Crear cita';
   public errores: string[];
-  //public id: Cliente[];
+  public clientes: Cliente[];
+  public empleados: Empleado[];
+  public  tipoActividad: TipoActividad[];
 
   constructor(private citaService: CitaService,
+              private empleadoService: EmpleadoService,
+              private clienteService: ClienteService,
               private router: Router,
               private activatedRoute: ActivatedRoute){}
 
   ngOnInit(  ) {
     this.cargarCita();
    // this.citaService.getCitas().subscribe(citas => this.citas = citas)
+    this.citaService.getTipoActividades().subscribe(tipoActividades => this.tipoActividad = tipoActividades);
+    this.empleadoService.getEmpleados().subscribe(empleados => this.empleados = empleados)
   }
 
   cargarCita(): void{
@@ -64,4 +74,18 @@ export class FormularioCitaComponent {
       }
     );
   }
+
+  compararTipoActividad(o1:TipoActividad, o2:TipoActividad):boolean {
+    return o1 &&  o2 ? o1.id === o2.id : o1 === o2;
+  }
+
+  compararCliente(o1:Cliente, o2:Cliente):boolean {
+    return o1 &&  o2 ? o1.id === o2.id : o1 === o2;
+  }
+
+  compararEmpleado(o1:Empleado, o2:Empleado):boolean {
+    return o1 &&  o2 ? o1.id === o2.id : o1 === o2;
+  }
+
+
 }
