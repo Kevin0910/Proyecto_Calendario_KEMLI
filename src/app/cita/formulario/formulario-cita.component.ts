@@ -32,9 +32,10 @@ export class FormularioCitaComponent {
 
   ngOnInit(  ) {
     this.cargarCita();
-   // this.citaService.getCitas().subscribe(citas => this.citas = citas)
+    
     this.citaService.getTipoActividades().subscribe(tipoActividades => this.tipoActividad = tipoActividades);
-    this.empleadoService.getEmpleados().subscribe(empleados => this.empleados = empleados)
+    this.empleadoService.getEmpleados().subscribe(empleados => this.empleados = empleados);
+    this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
   }
 
   cargarCita(): void{

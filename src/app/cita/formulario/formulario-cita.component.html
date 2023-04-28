@@ -11,7 +11,7 @@
       <form #citaForm ="ngForm">
 
         <div class="form-group row mb-3">
-          <label for="empleado" class="col-form-label col-sm-2">Empleado <i class="bi bi-briefcase"></i></label>
+          <label for="empleado" class="col-form-label col-sm-2">Nombre del empleado <i class="bi bi-briefcase"></i></label>
             <div class="col-sm-6">
               <select [compareWith]="compararEmpleado" class="form-control" [(ngModel)]="cita.empleado" name="id_empleado"  style="width: 500xp;">
                 <option *ngFor="let empleado of empleados" [ngValue]="empleado"> {{empleado.primer_nombre}} {{empleado.segundo_nombre}} {{empleado.apellido_P}} {{empleado.apellido_M}} ( {{empleado.tipoDeEmpleado.tipoEmpleado}} )</option>
@@ -19,9 +19,17 @@
             </div>
         </div>
 
+        <div class="form-group row mb-3">
+          <label for="cliente" class="col-form-label col-sm-2">Nombre del cliente <i class="bi bi-person-circle"></i></label>
+            <div class="col-sm-6">
+              <select [compareWith]="compararCliente" class="form-control" [(ngModel)]="cita.cliente" name="id_cliente"  style="width: 500xp;">
+                <option *ngFor="let cliente of clientes" [ngValue]="cliente"> {{cliente.primer_nombre}} {{cliente.segundo_nombre}} {{cliente.apellido_P}} {{cliente.apellido_M}} </option>
+              </select>
+            </div>
+        </div>
 
         <div class="form-group row mb-3">
-          <label for="tipoDeActividad" class="col-form-label col-sm-2">Tipo de actividad <i class="bi bi-briefcase"></i></label>
+          <label for="tipoDeActividad" class="col-form-label col-sm-2">Tipo de actividad </label>
             <div class="col-sm-6">
               <select [compareWith]="compararTipoActividad" class="form-control" [(ngModel)]="cita.tipoDeActividad" name="tipo_actividad"  style="width: 500xp;">
                 <option *ngFor="let tipoDeActividad of tipoActividad" [ngValue]="tipoDeActividad"> {{tipoDeActividad.tipoActividad}} </option>
@@ -30,19 +38,43 @@
         </div>
 
         <div class="form-group row mb-3">
-          <label for="fecha_cita" class="col-form-label col-sm-2">Fecha cita <i class="bi bi-balloon"></i></label>
+          <label for="fecha_cita" class="col-form-label col-sm-2">Fecha cita <i class="bi bi-calendar3"></i></label>
             <div class="col-sm-6">
               <input type="date" class="form-control" [(ngModel)]="cita.fecha_cita" name="fecha_cita" #fecha_cita = "ngModel"> <!-- required -->
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="hora_cita" class="col-form-label col-sm-2">Hora de cita <i class="bi bi-geo-alt"></i></label>
+          <label for="hora_cita" class="col-form-label col-sm-2">Hora cita <i class="bi bi-alarm"></i></label>
             <div class="col-sm-6">
               <input type="time" class="form-control" [(ngModel)]="cita.hora_cita" name="cita_hora" #hora_cita="ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="hora_cita.invalid && (hora_cita.dirty || hora_cita.touched)">
                 <div *ngIf="hora_cita.errors.required">
                   cita requerido
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row mb-3">
+          <label for="direccion" class="col-form-label col-sm-2">Direccion <i class="bi bi-geo-alt"></i></label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [(ngModel)]="cita.direccion" name="cita_hora" #direccion="ngModel"> <!-- required -->
+              <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                <div *ngIf="direccion.errors.required">
+                  direccion requerido
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group row mb-3">
+          <label for="descripcion" class="col-form-label col-sm-2">Descripcion <i class="bi bi-house"></i></label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" [(ngModel)]="cita.descripcion" name="cita_hora" #descripcion="ngModel"> <!-- required -->
+              <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                <div *ngIf="descripcion.errors.required">
+                  descripcion requerido
                 </div>
               </div>
             </div>

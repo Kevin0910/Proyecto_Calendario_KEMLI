@@ -6,8 +6,8 @@ export class Cita {
   id: number;
   fecha_cita: string;
   hora_cita: string;
-  //direccion: string;
-  //descripcionDeLaCasa: string;
+  direccion: string;
+  descripcion: string;
   empleado: Empleado;
   cliente: Cliente;
   tipoDeActividad:TipoActividad;
