@@ -34,7 +34,8 @@ const routes: Routes = [
   {path: 'clientes/formulario/:id', component: FormularioComponent},
   {path: 'empleados/formulario-empleados', component: ForularioEmpleadoComponent},
   {path: 'empleados/formulario-empleados/:id', component: ForularioEmpleadoComponent},
-  {path: 'citas/formulario-cita', component: FormularioCitaComponent}
+  {path: 'citas/formulario-cita', component: FormularioCitaComponent},
+  {path: 'citas/formulario-cita/:id', component: FormularioCitaComponent}
 ]
 
 @NgModule({
