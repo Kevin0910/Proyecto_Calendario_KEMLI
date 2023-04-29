@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Cita } from './cita';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of, throwError } from 'rxjs';
-import { CITAS } from './cita.json';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { TipoActividad } from './tipoActividad';
@@ -24,7 +23,7 @@ export class CitaService {
     return this.http.get<TipoActividad[]>(this.urlEndPoint+"/tipoActividades");
   }
 
-  
+
 
   getCitas(): Observable<Cita[]>{
     return this.http.get<Cita[]>(this.urlEndPoint);

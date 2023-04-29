@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cita } from './cita';
 import { CitaService } from './cita.service';
 import swal from 'sweetalert2';
+import { ModalCitaService } from './detalle-cita/modal-cita.service';
 
 @Component({
   selector: 'app-cita',
@@ -10,8 +11,10 @@ import swal from 'sweetalert2';
 export class CitaComponent{
 
   citas: Cita[];
+  citaSeleccionado: Cita;
 
-  constructor(private citaService: CitaService){}
+  constructor(private citaService: CitaService,
+              public modalCitaService:ModalCitaService){}
 
   ngOnInit() {
     this.citaService.getCitas().subscribe(
@@ -42,5 +45,12 @@ export class CitaComponent{
         )
       }
     })
+  }
+
+
+
+abrirModal(cita:Cita){
+  this.citaSeleccionado = cita;
+  this.modalCitaService.abrirModalCita();
   }
 }

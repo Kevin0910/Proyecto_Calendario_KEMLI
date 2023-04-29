@@ -1,3 +1,5 @@
+<detalle-cita *ngIf="citaSeleccionado" [cita] = citaSeleccionado> </detalle-cita>
+
 <div class="card border-primary mb-3">
   <div class="card-header">Citas</div>
   <div class="card-body text-secondary">
@@ -17,7 +19,6 @@
             <th>ID CLIENTE</th>
             <th>ID EMPLEADO</th>
             <th>Detalle de la cita <i class="bi bi-person-lines-fill"></i></th>
-            <th>Editar</th>
             <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th>
           </tr>
         </thead>
@@ -26,9 +27,8 @@
             <td>{{cita.id}}</td>
             <td>{{cita.cliente.id}} </td>
             <td>{{cita.empleado.id}} </td>
-            <td> <i type="button" class="bi bi-person-vcard btn btn-primary btn btn bg-primary "></i> Detalle</td>
             <td>
-              <button type="button" name="button_editar_cita" [routerLink]="" class="btn btn-primary btn-sm">Editar</button>
+              <i type="button" name="button_detalle_cita" (click)="abrirModal(cita)" class="bi bi-person-vcard btn btn-primary btn btn bg-primary "> Detalle</i>
             </td>
             <td>
               <button type="button" name="button_eliminar_cita" (click)="delete(cita)" class="btn btn-danger btn-sm">Eliminar</button>
