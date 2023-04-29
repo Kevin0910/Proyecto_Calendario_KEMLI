@@ -19,6 +19,7 @@ export class FormularioCitaComponent {
 
   public cita: Cita = new Cita();
   public titulo: string ='Crear cita';
+
   public errores: string[];
   public clientes: Cliente[];
   public empleados: Empleado[];
@@ -32,7 +33,7 @@ export class FormularioCitaComponent {
 
   ngOnInit(  ) {
     this.cargarCita();
-    
+
     this.citaService.getTipoActividades().subscribe(tipoActividades => this.tipoActividad = tipoActividades);
     this.empleadoService.getEmpleados().subscribe(empleados => this.empleados = empleados);
     this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
@@ -48,10 +49,11 @@ export class FormularioCitaComponent {
   }
 
   create(): void{
+    console.log(this.cita)
     this.citaService.create(this.cita)
     .subscribe( jsonResponse => {
-      this.router.navigate(['/clientes'])
-      swal('Cita agregado',`El cliente ${jsonResponse.cita.cliente.primer_nombre} ${jsonResponse.cita.cliente.segundo_nombre} ${jsonResponse.mensaje} `, 'success')
+      this.router.navigate(['/citas'])
+      swal('Cita agregado',`El cliente ${jsonResponse.cita.cliente} ${jsonResponse.mensaje} `, 'success')
       },
       err =>{
         this.errores = err.error.errors as string[];
@@ -65,7 +67,7 @@ export class FormularioCitaComponent {
   update():void{
     this.citaService.update(this.cita)
     .subscribe( jsonResponse => {
-        this.router.navigate(['/clientes'])
+        this.router.navigate(['/citas'])
         swal ('Cita Guardado', `El cliente ${jsonResponse.cita.cliente.primer_nombre} ${jsonResponse.cita.cliente.apellido_P} ${jsonResponse.mensaje} `, 'success' )
       },
       err =>{
@@ -76,16 +78,19 @@ export class FormularioCitaComponent {
     );
   }
 
-  compararTipoActividad(o1:TipoActividad, o2:TipoActividad):boolean {
+  compararTipoActividad(o1: TipoActividad, o2: TipoActividad):boolean {
     return o1 &&  o2 ? o1.id === o2.id : o1 === o2;
+    //return o1 === null ||  o2 === null || o1 === undefined ||  o2 === undefined ? false: o1.id === o2.id;
   }
 
   compararCliente(o1:Cliente, o2:Cliente):boolean {
     return o1 &&  o2 ? o1.id === o2.id : o1 === o2;
+    //return o1 === null ||  o2 === null || o1 === undefined ||  o2 === undefined ? false: o1.id === o2.id;
   }
 
   compararEmpleado(o1:Empleado, o2:Empleado):boolean {
     return o1 &&  o2 ? o1.id === o2.id : o1 === o2;
+    //return o1 === null ||  o2 === null || o1 === undefined ||  o2 === undefined ? false: o1.id === o2.id;
   }
 
 

@@ -1,0 +1,52 @@
+<div *ngIf="modalCitaService.modal" class="modal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h1 class="modal-title fs-5"> {{titulo}} <i class="bi bi-table"></i> </h1>
+      <!-- <button (click)="cerrarModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  -->
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-8">
+              <ul *ngIf="cita">
+                <li class="list-group-item">Nombre del cliente</li>
+                <li class="list-group-item"> {{cita.cliente.primer_nombre}} {{cita.cliente.segundo_nombre}} {{cita.cliente.apellido_P}} {{cita.cliente.apellido_M}} </li>
+              </ul>
+              <ul >
+                <li class ="list-group-item"> Nombre del empleado</li>
+                <li class="list-group-item"> {{cita.empleado.primer_nombre}} {{cita.empleado.segundo_nombre}} {{cita.empleado.apellido_P}} {{cita.empleado.apellido_M}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item"> Tipo de actividad </li>
+                <li class="list-group-item"> {{cita.tipoDeActividad.tipoActividad}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item"> Fecha de la cita <i class="bi bi-calendar3"></i></li>
+                <li class="list-group-item"> {{cita.fecha_cita | date:"EEEE dd, MMMM yyyy"}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item"> Hora de la cita <i class="bi bi-alarm"></i></li>
+                <li class="list-group-item"> {{cita.hora_cita }}  </li>
+              </ul>
+              <ul>
+                <li class="list-group-item"> Direccion <i class="bi bi-geo-alt-fill"></i></li>
+                <li class="list-group-item"> {{cita.direccion}} </li>
+              </ul>
+              <ul>
+                <li class="list-group-item"> Descripcion  <i class="bi bi-pencil-square"></i></li>
+                <li class="list-group-item"> {{cita.descripcion}} </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" name="button_editar_cita" [routerLink]="['/citas/formulario-cita', cita.id]" class="btn btn-primary " data-bs-dismiss="modal">Editar <i class="bi bi-database-fill-gear"></i></button>
+        <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar <i class="bi bi-x-circle"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

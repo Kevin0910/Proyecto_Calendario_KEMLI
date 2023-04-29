@@ -47,38 +47,39 @@
         <div class="form-group row mb-3">
           <label for="hora_cita" class="col-form-label col-sm-2">Hora cita <i class="bi bi-alarm"></i></label>
             <div class="col-sm-6">
-              <input type="time" class="form-control" [(ngModel)]="cita.hora_cita" name="cita_hora" #hora_cita="ngModel"> <!-- required -->
-              <div class="alert alert-danger" *ngIf="hora_cita.invalid && (hora_cita.dirty || hora_cita.touched)">
-                <div *ngIf="hora_cita.errors.required">
-                  cita requerido
+              <input type="time"  class="form-control" [(ngModel)]="cita.hora_cita" name="cita_hora" #hora_de_la_cita="ngModel"> <!-- required -->
+              <div class="alert alert-danger" *ngIf="hora_de_la_cita.invalid && (hora_de_la_cita.dirty || hora_de_la_cita.touched)">
+                <div *ngIf="hora_de_la_cita.errors.required">
+                  Se requiere la direccion
                 </div>
               </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="direccion" class="col-form-label col-sm-2">Direccion <i class="bi bi-geo-alt"></i></label>
+          <label for="direccion" class="col-form-label col-sm-2">Dirección</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cita.direccion" name="cita_hora" #direccion="ngModel"> <!-- required -->
-              <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
-                <div *ngIf="direccion.errors.required">
-                  direccion requerido
+              <input type="text" class="form-control" [(ngModel)]="cita.direccion" name="direccion" #direccion_cliente = "ngModel"> <!-- required -->
+              <div class="alert alert-danger" *ngIf="direccion_cliente.invalid && (direccion_cliente.dirty || direccion_cliente.touched)">
+                <div *ngIf="direccion_cliente.errors.required">
+                  Se requiere la direccion
                 </div>
               </div>
             </div>
         </div>
 
         <div class="form-group row mb-3">
-          <label for="descripcion" class="col-form-label col-sm-2">Descripcion <i class="bi bi-house"></i></label>
+          <label for="descripcion" class="col-form-label col-sm-2">Descripción</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cita.descripcion" name="cita_hora" #descripcion="ngModel"> <!-- required -->
-              <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
-                <div *ngIf="descripcion.errors.required">
-                  descripcion requerido
+              <input type="text" class="form-control" [(ngModel)]="cita.descripcion" name="descripcion" #descripcion_cliente = "ngModel"> <!-- required -->
+              <div class="alert alert-danger" *ngIf="descripcion_cliente.invalid && (descripcion_cliente.dirty || descripcion_cliente.touched)">
+                <div *ngIf="descripcion_cliente.errors.required">
+                  Se requiere la descripcion del hogar o edificio
                 </div>
               </div>
             </div>
         </div>
+
 
         <div class="form-group row mb-2">
           <div class="col-sm-1">
