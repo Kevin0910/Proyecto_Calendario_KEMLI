@@ -28,14 +28,14 @@ const routes: Routes = [
   {path: '', redirectTo: '/clientes', pathMatch: 'full'},
   {path: 'clientes', component: ClienteComponent},
   {path: 'empleados', component: EmpleadoComponent},
-  {path: 'reporte', component: ReporteComponent},
-  {path: 'cita', component: CitaComponent},
+  {path: 'reportes', component: ReporteComponent},
+  {path: 'citas', component: CitaComponent},
   {path: 'clientes/formulario', component: FormularioComponent},
   {path: 'clientes/formulario/:id', component: FormularioComponent},
   {path: 'empleados/formulario-empleados', component: ForularioEmpleadoComponent},
   {path: 'empleados/formulario-empleados/:id', component: ForularioEmpleadoComponent},
-  {path: 'citas/formulario-cita', component: FormularioCitaComponent},
-  {path: 'citas/formulario-cita/:id', component: FormularioCitaComponent}
+  {path: 'citas/formulario-citas', component: FormularioCitaComponent},
+  {path: 'citas/formulario-citas/:id', component: FormularioCitaComponent}
 ]
 
 @NgModule({
