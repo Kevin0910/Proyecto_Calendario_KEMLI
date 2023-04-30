@@ -24,7 +24,7 @@ export class CitaComponent{
   delete(cita:Cita): void{
     swal({
       title: 'Esta seguro?',
-      text: `¿Seguro que desea eliminar el cliente ${cita.cliente.primer_nombre} con ID:${cita.cliente.id} ?`,
+      text: `¿Seguro que desea eliminar la cita del cliente ${cita.cliente.primer_nombre} ${cita.cliente.apellido_P} con el id cita ${cita.cliente.id} ?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -37,8 +37,8 @@ export class CitaComponent{
           response => {
             this.citas = this.citas.filter(ci => ci !== cita)
             swal(
-              'Cliente eliminado!',
-              `El cliente ${cita.cliente.primer_nombre} ${cita.cliente.apellido_P} ah sido eliminado`,
+              'Cita eliminada!',
+              `La cita del cliente ${cita.cliente.primer_nombre} ${cita.cliente.apellido_P} ah sido eliminado`,
               'success'
             )
           }

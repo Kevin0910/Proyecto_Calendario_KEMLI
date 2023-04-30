@@ -51,9 +51,11 @@ export class FormularioCitaComponent {
   create(): void{
     console.log(this.cita)
     this.citaService.create(this.cita)
-    .subscribe( jsonResponse => {
+    .subscribe( jsonResponseCita => {
       this.router.navigate(['/citas'])
-      swal('Cita agregado',`El cliente ${jsonResponse.cita.cliente} ${jsonResponse.mensaje} `, 'success')
+      //console.log(this.cita)
+      //console.log(this.cita.cliente)
+      swal('Cita agregado',`La cita del cliente ${this.cita.cliente.primer_nombre} ${this.cita.cliente.apellido_P} ${jsonResponseCita.mensaje} `, 'success')
       },
       err =>{
         this.errores = err.error.errors as string[];
@@ -68,7 +70,7 @@ export class FormularioCitaComponent {
     this.citaService.update(this.cita)
     .subscribe( jsonResponse => {
         this.router.navigate(['/citas'])
-        swal ('Cita Guardado', `El cliente ${jsonResponse.cita.cliente.primer_nombre} ${jsonResponse.cita.cliente.apellido_P} ${jsonResponse.mensaje} `, 'success' )
+        swal ('Cita Guardado', `La cita del cliente ${this.cita.cliente.primer_nombre} ${this.cita.cliente.apellido_P} ${jsonResponse.mensaje} `, 'success' )
       },
       err =>{
         this.errores = err.error.errors as string[];
