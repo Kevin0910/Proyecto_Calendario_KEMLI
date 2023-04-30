@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header bg-dark text-white">
-        <h1 class="modal-title fs-5"> {{titulo}} <i class="bi bi-table"></i> </h1>
+        <h1 class="modal-title fs-5"> {{titulo}} id: "{{cita.id}}" <i class="bi bi-table"></i> </h1>
       <!-- <button (click)="cerrarModal()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>  -->
       </div>
       <div class="modal-body">
@@ -12,15 +12,15 @@
             <div class="col-8">
               <ul *ngIf="cita">
                 <li class="list-group-item">Nombre del cliente</li>
-                <li class="list-group-item"> {{cita.cliente.primer_nombre}} {{cita.cliente.segundo_nombre}} {{cita.cliente.apellido_P}} {{cita.cliente.apellido_M}} </li>
+                <li class="list-group-item"> {{cita.cliente.id}}.- {{cita.cliente.primer_nombre}} {{cita.cliente.segundo_nombre}} {{cita.cliente.apellido_P}} {{cita.cliente.apellido_M}} </li>
               </ul>
               <ul >
                 <li class ="list-group-item"> Nombre del empleado</li>
-                <li class="list-group-item"> {{cita.empleado.primer_nombre}} {{cita.empleado.segundo_nombre}} {{cita.empleado.apellido_P}} {{cita.empleado.apellido_M}} </li>
+                <li class="list-group-item"> {{cita.empleado.id}}.- {{cita.empleado.primer_nombre}} {{cita.empleado.segundo_nombre}} {{cita.empleado.apellido_P}} {{cita.empleado.apellido_M}} </li>
               </ul>
               <ul>
                 <li class="list-group-item"> Tipo de actividad </li>
-                <li class="list-group-item"> {{cita.tipoDeActividad.tipoActividad}} </li>
+                <li class="list-group-item"> {{cita.tipoDeActividad.id}}.- {{cita.tipoDeActividad.tipoActividad}} </li>
               </ul>
               <ul>
                 <li class="list-group-item"> Fecha de la cita <i class="bi bi-calendar3"></i></li>
