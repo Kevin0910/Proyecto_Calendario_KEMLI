@@ -14,7 +14,7 @@
           <label for="empleado" class="col-form-label col-sm-2">Nombre del empleado <i class="bi bi-briefcase"></i></label>
             <div class="col-sm-6">
               <select [compareWith]="compararEmpleado" class="form-control" [(ngModel)]="cita.empleado" name="id_empleado"  style="width: 500xp;">
-                <option *ngFor="let empleado of empleados" [ngValue]="empleado"> {{empleado.primer_nombre}} {{empleado.segundo_nombre}} {{empleado.apellido_P}} {{empleado.apellido_M}} ( {{empleado.tipoDeEmpleado.tipoEmpleado}} )</option>
+                <option *ngFor="let empleado of empleados" [ngValue]="empleado"> {{empleado.id}}.- {{empleado.primer_nombre}} {{empleado.segundo_nombre}} {{empleado.apellido_P}} {{empleado.apellido_M}} ( {{empleado.tipoDeEmpleado.tipoEmpleado}} )</option>
               </select>
             </div>
         </div>
@@ -23,7 +23,7 @@
           <label for="cliente" class="col-form-label col-sm-2">Nombre del cliente <i class="bi bi-person-circle"></i></label>
             <div class="col-sm-6">
               <select [compareWith]="compararCliente" class="form-control" [(ngModel)]="cita.cliente" name="id_cliente"  style="width: 500xp;">
-                <option *ngFor="let cliente of clientes" [ngValue]="cliente"> {{cliente.primer_nombre}} {{cliente.segundo_nombre}} {{cliente.apellido_P}} {{cliente.apellido_M}} </option>
+                <option *ngFor="let cliente of clientes" [ngValue]="cliente"> {{cliente.id}}.- {{cliente.primer_nombre}} {{cliente.segundo_nombre}} {{cliente.apellido_P}} {{cliente.apellido_M}} </option>
               </select>
             </div>
         </div>
@@ -32,7 +32,7 @@
           <label for="tipoDeActividad" class="col-form-label col-sm-2">Tipo de actividad </label>
             <div class="col-sm-6">
               <select [compareWith]="compararTipoActividad" class="form-control" [(ngModel)]="cita.tipoDeActividad" name="tipo_actividad"  style="width: 500xp;">
-                <option *ngFor="let tipoDeActividad of tipoActividad" [ngValue]="tipoDeActividad"> {{tipoDeActividad.tipoActividad}} </option>
+                <option *ngFor="let tipoDeActividad of tipoActividad" [ngValue]="tipoDeActividad"> {{tipoDeActividad.id}}.- {{tipoDeActividad.tipoActividad}} </option>
               </select>
             </div>
         </div>
@@ -59,7 +59,7 @@
         <div class="form-group row mb-3">
           <label for="direccion" class="col-form-label col-sm-2">Dirección</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cita.direccion" name="direccion" #direccion_cliente = "ngModel"> <!-- required -->
+              <input type="text" placeholder="Ingresar direccion donde se requiere el servicio" class="form-control" [(ngModel)]="cita.direccion" name="direccion" #direccion_cliente = "ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="direccion_cliente.invalid && (direccion_cliente.dirty || direccion_cliente.touched)">
                 <div *ngIf="direccion_cliente.errors.required">
                   Se requiere la direccion
@@ -71,7 +71,7 @@
         <div class="form-group row mb-3">
           <label for="descripcion" class="col-form-label col-sm-2">Descripción</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="cita.descripcion" name="descripcion" #descripcion_cliente = "ngModel"> <!-- required -->
+              <input type="text" placeholder="Ingresar descripcion del lugar" class="form-control" [(ngModel)]="cita.descripcion" name="descripcion" #descripcion_cliente = "ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="descripcion_cliente.invalid && (descripcion_cliente.dirty || descripcion_cliente.touched)">
                 <div *ngIf="descripcion_cliente.errors.required">
                   Se requiere la descripcion del hogar o edificio

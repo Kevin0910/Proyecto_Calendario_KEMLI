@@ -12,7 +12,7 @@
         <div class="form-group row mb-3">
           <label for="nombre_1" class="col-form-label col-sm-2 ">Primer nombre</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)] ="empleado.primer_nombre" name="nombre_1"  #primer_nombre="ngModel">  <!-- required minlength="3"-->
+            <input type="text" placeholder="Ingresar primer nombre" class="form-control" [(ngModel)] ="empleado.primer_nombre" name="nombre_1"  #primer_nombre="ngModel">  <!-- required minlength="3"-->
             <div class="alert alert-danger" *ngIf="primer_nombre.invalid && (primer_nombre.dirty || primer_nombre.touched)">
               <div *ngIf="primer_nombre.errors.required">
                 Nombre requerido
@@ -27,14 +27,14 @@
         <div class="form-group row mb-3">
           <label for="nombre_2" class="col-form-label col-sm-2 ">Segundo nombre</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" [(ngModel)] ="empleado.segundo_nombre" name="nombre_2" >
+            <input type="text" placeholder="Ingresar segundo nombre" class="form-control" [(ngModel)] ="empleado.segundo_nombre" name="nombre_2" >
           </div>
         </div>
 
         <div class="form-group row mb-3">
           <label for="apellido_P" class="col-form-label col-sm-2">Apellido Paterno</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.apellido_P" name="apellido_P" #apellido_paterno = "ngModel">  <!--required -->
+              <input type="text" placeholder="Ingresar apellido paterno" class="form-control" [(ngModel)]="empleado.apellido_P" name="apellido_P" #apellido_paterno = "ngModel">  <!--required -->
               <div class="alert alert-danger" *ngIf="apellido_paterno.invalid && (apellido_paterno.dirty || apellido_paterno.touched)">
                 <div *ngIf="apellido_materno.errors.required">
                   Apellido materno requerido
@@ -46,7 +46,7 @@
         <div class="form-group row mb-3">
           <label for="apellido_M" class="col-form-label col-sm-2">Apellido Materno</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.apellido_M  " name="apellido_M"  #apellido_materno = "ngModel"> <!--required -->
+              <input type="text" placeholder="Ingresar apellido materno" class="form-control" [(ngModel)]="empleado.apellido_M  " name="apellido_M"  #apellido_materno = "ngModel"> <!--required -->
               <div class="alert alert-danger" *ngIf="apellido_materno.invalid && (apellido_materno.dirty || apellido_materno.touched)">
                 <div *ngIf="apellido_materno.errors.required">
                   Apellido materno requerido
@@ -65,7 +65,7 @@
         <div class="form-group row mb-3">
           <label for="domicilio" class="col-form-label col-sm-2">Domicilio <i class="bi bi-geo-alt"></i></label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.domicilio" name="domicilio"  #domicilio ="ngModel"> <!--required -->
+              <input type="text" placeholder="Ingresar domicilio" class="form-control" [(ngModel)]="empleado.domicilio" name="domicilio"  #domicilio ="ngModel"> <!--required -->
               <div class="alert alert-danger" *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)">
                 <div *ngIf="domicilio.errors.required">
                   domicilio requerido
@@ -77,7 +77,7 @@
         <div class="form-group row mb-3">
           <label for="correo" class="col-form-label col-sm-2">Correo electronico <i class="bi bi-envelope-at-fill"></i></label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.correo" name="correo"  #email="ngModel"> <!-- required email -->
+              <input type="text" placeholder="Ingresar gmail" class="form-control" [(ngModel)]="empleado.correo" name="correo"  #email="ngModel"> <!-- required email -->
               <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
                 <div *ngIf="email.errors.required">
                   Email requerido
@@ -92,7 +92,7 @@
         <div class="form-group row mb-3">
           <label for="telefono" class="col-form-label col-sm-2">Número de telefono <i class="bi bi-telephone-plus-fill"></i></label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" [(ngModel)]="empleado.telefono" name="telefono"  #telefono ="ngModel"> <!--required-->
+              <input type="text" placeholder="Ingresar número de telefono" class="form-control" [(ngModel)]="empleado.telefono" name="telefono"  #telefono ="ngModel"> <!--required-->
               <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
                 <div *ngIf="telefono.errors.required">
                   Telefono requerido
@@ -105,7 +105,7 @@
           <label for="tipoDeEmpleado" class="col-form-label col-sm-2">Tipo de empleado <i class="bi bi-briefcase"></i></label>
             <div class="col-sm-6">
               <select [compareWith]="compararTipoEmpleados" class="form-control" [(ngModel)]="empleado.tipoDeEmpleado" name="tipo_empleado"  style="width: 500xp;">
-                <option *ngFor="let tipoDeEmpleado of tipoEmpleados" [ngValue]="tipoDeEmpleado"> {{tipoDeEmpleado.tipoEmpleado}} </option>
+                <option *ngFor="let tipoDeEmpleado of tipoEmpleados" [ngValue]="tipoDeEmpleado"> {{tipoDeEmpleado.id}}.- {{tipoDeEmpleado.tipoEmpleado}} </option>
               </select>
             </div>
         </div>
