@@ -4,14 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteComponent } from './cliente/components/cliente.component';
 import { AutenticacionComponent } from './autenticacion/autenticacion.component';
 import { RouterModule, Routes, Route } from '@angular/router';
 import { ReporteComponent } from './reporte/reporte.component';
-import { EmpleadoComponent } from './empleado/empleado.component';
+import { EmpleadoComponent } from './empleado/components/empleado.component';
 import { FormularioComponent } from './cliente/formulario/formulario.component';
 import { ForularioEmpleadoComponent } from './empleado/formulario/forulario-empleado.component';
-import { CitaComponent } from './cita/cita.component';
+import { CitaComponent } from './cita/components/cita.component';
 
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';

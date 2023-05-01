@@ -18,6 +18,7 @@
             <th>ID CITA</th>
             <th>ID CLIENTE</th>
             <th>ID EMPLEADO</th>
+            <th>Fecha de la cita</th>
             <th>Detalle de la cita <i class="bi bi-person-lines-fill"></i></th>
             <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th>
           </tr>
@@ -27,6 +28,7 @@
             <td>{{cita.id}}</td>
             <td>{{cita.cliente.id}} </td>
             <td>{{cita.empleado.id}} </td>
+            <td>{{cita.fecha_cita | date:"EEEE dd, MMMM yyyy"}} </td>
             <td>
               <button type="button" name="button_detalle_cita" (click)="abrirModal(cita)" class=" btn btn-primary">Detalle <i class="bi-person-vcard"></i></button>
             </td>

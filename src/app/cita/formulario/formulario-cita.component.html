@@ -40,14 +40,14 @@
         <div class="form-group row mb-3">
           <label for="fecha_cita" class="col-form-label col-sm-2">Fecha cita <i class="bi bi-calendar3"></i></label>
             <div class="col-sm-6">
-              <input type="date" class="form-control" [(ngModel)]="cita.fecha_cita" name="fecha_cita" #fecha_cita = "ngModel"> <!-- required -->
+              <input type="date" class="form-control" [(ngModel)]="cita.fecha_cita" name="fecha_cita" #fecha_cita = "ngModel" required min="{{ fechaActual() | date: 'yyyy-MM-dd' }}"> <!-- required -->
             </div>
         </div>
 
         <div class="form-group row mb-3">
           <label for="hora_cita" class="col-form-label col-sm-2">Hora cita <i class="bi bi-alarm"></i></label>
             <div class="col-sm-6">
-              <input type="time"  class="form-control" [(ngModel)]="cita.hora_cita" name="cita_hora" #hora_de_la_cita="ngModel"> <!-- required -->
+              <input type="time"  class="form-control" [(ngModel)]="cita.hora_cita" name="cita_hora" #hora_de_la_cita="ngModel"  > <!-- required min="{{ horaActual() | date: 'HH:mm' }}" -->
               <div class="alert alert-danger" *ngIf="hora_de_la_cita.invalid && (hora_de_la_cita.dirty || hora_de_la_cita.touched)">
                 <div *ngIf="hora_de_la_cita.errors.required">
                   Se requiere la direccion

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Empleado } from '../empleado';
-import { EmpleadoService } from '../empleado.service';
+import { Empleado } from '../components/empleado';
+import { EmpleadoService } from '../components/empleado.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import swal from 'sweetalert2';
-import { TipoEmpl } from '../tipoEmpl';
+import { TipoEmpl } from '../components/tipoEmpl';
 
 @Component({
   selector: 'app-forulario-empleado',

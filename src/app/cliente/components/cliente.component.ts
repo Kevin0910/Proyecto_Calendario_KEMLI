@@ -4,7 +4,7 @@ import { Cliente } from './cliente';
 import { ClienteService } from './cliente.service';
 
 import swal from 'sweetalert2';
-import { ModalClienteService } from './detalle-cliente/modal-cliente.service';
+import { ModalClienteService } from '../detalle-cliente/modal-cliente.service';
 
 @Component({
   selector: 'app-cliente',

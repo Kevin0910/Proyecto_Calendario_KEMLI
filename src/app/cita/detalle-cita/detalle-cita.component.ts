@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ModalCitaService } from './modal-cita.service';
-import { Cita } from '../cita';
+import { Cita } from '../components/cita';
 
 @Component({
   selector: 'detalle-cita',

@@ -1,15 +1,15 @@
-import { EmpleadoService } from './../../empleado/empleado.service';
-import { Cita } from '../cita';
-import { CitaService } from '../cita.service';
+import { EmpleadoService } from '../../empleado/components/empleado.service';
+import { Cita } from '../components/cita';
+import { CitaService } from '../components/cita.service';
 
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente } from 'src/app/cliente/cliente';
+import { Cliente } from 'src/app/cliente/components/cliente';
 
 import swal from 'sweetalert2';
-import { TipoActividad } from '../tipoActividad';
-import { Empleado } from 'src/app/empleado/empleado';
-import { ClienteService } from 'src/app/cliente/cliente.service';
+import { TipoActividad } from '../components/tipoActividad';
+import { Empleado } from 'src/app/empleado/components/empleado';
+import { ClienteService } from 'src/app/cliente/components/cliente.service';
 
 @Component({
   selector: 'app-formulario-cita',
@@ -80,6 +80,15 @@ export class FormularioCitaComponent {
     );
   }
 
+  fechaActual(): string  {
+    return new Date().toISOString().split("T")[0];
+  }
+
+/*
+  horaActual(): string {
+    return new Date().toISOString().substr(11, 5);
+  }
+*/
   compararTipoActividad(o1: TipoActividad, o2: TipoActividad):boolean {
     return o1 &&  o2 ? o1.id === o2.id : o1 === o2;
     //return o1 === null ||  o2 === null || o1 === undefined ||  o2 === undefined ? false: o1.id === o2.id;

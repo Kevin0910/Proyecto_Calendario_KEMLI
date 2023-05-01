@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Cita } from './cita';
-import { CitaService } from './cita.service';
+
 import swal from 'sweetalert2';
-import { ModalCitaService } from './detalle-cita/modal-cita.service';
+import { ModalCitaService } from '../detalle-cita/modal-cita.service';
+import { CitaService } from './cita.service';
 
 @Component({
   selector: 'app-cita',

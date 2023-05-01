@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Empleado } from './empleado';
 import { EmpleadoService } from './empleado.service';
 import swal from 'sweetalert2';
-import { ModalService } from './detalle/modal.service';
+import { ModalService } from '../detalle/modal.service';
 
 @Component({
   selector: 'app-empleado',
