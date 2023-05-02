@@ -10,12 +10,15 @@
         <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/clientes/formulario']">Crear cliente <i class="bi bi-database-fill-add"></i></button>
       </div>
 
-        <div class="container-fluid">
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Nombre del cliente" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
+      <label for="exampleDataList" class="form-label">Busqueda del cliente</label>
+      <form class="d-flex">
+        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Nombre del cliente">
+          <button class="btn btn-outline-success" type="submit">Buscar </button>
+            <datalist id="datalistOptions">
+              <option *ngFor="let cliente of clientes" value="{{cliente.primer_nombre}} {{cliente.segundo_nombre}} {{cliente.apellido_P}} {{cliente.apellido_M}}">
+            </datalist>
+      </form>
+
     </div>
 
 
