@@ -14,6 +14,8 @@ import { ModalClienteService } from '../detalle-cliente/modal-cliente.service';
 export class ClienteComponent {
   clientes: Cliente [];
   clienteSeleccionado: Cliente;
+  clienteBusquedas: Cliente[] = [];
+
 
   constructor(private clienteService:ClienteService,
               public modalClienteService: ModalClienteService){
@@ -24,8 +26,18 @@ export class ClienteComponent {
     this.clienteService.getClientes().subscribe(
       (clientes) => this.clientes = clientes
     );
+
   }
 
+  busquedaPorNombre(termino: string): void{
+    this.clienteService.busquedaCliente(termino).subscribe(
+      (clienteBusquedas => {
+        this.clienteBusquedas = clienteBusquedas;
+      })
+    );
+  }
+
+  //ELIMINAR CLIENTE
   delete(cliente:Cliente): void{
     swal({
       title: 'Esta seguro?',
@@ -45,6 +57,34 @@ export class ClienteComponent {
             swal(
               'Cliente eliminado!',
               `El cliente ${cliente.primer_nombre} ${cliente.apellido_P} ah sido eliminado`,
+              'success'
+            )
+          }
+        )
+      }
+    })
+  }
+
+  //ELIMINAR CLIENTE DE BUSQUEDA
+  deleteBusqueda(busquedaCliente:Cliente): void{
+    swal({
+      title: 'Esta seguro?',
+      text: `¿Seguro que desea eliminar el cliente ${busquedaCliente.primer_nombre} ${busquedaCliente.apellido_P}?`,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText:'No, eliminar',
+      confirmButtonText: 'Si, eliminar!'
+    }).then((result) => {
+      if (result.value) {
+
+        this.clienteService.delete(busquedaCliente.id).subscribe(
+          response => {
+            this.clientes = this.clientes.filter(busqCli => busqCli !== busquedaCliente)
+            swal(
+              'Cliente eliminado!',
+              `El cliente ${busquedaCliente.primer_nombre} ${busquedaCliente.apellido_P} ah sido eliminado`,
               'success'
             )
           }

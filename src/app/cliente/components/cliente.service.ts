@@ -17,6 +17,12 @@ export class ClienteService {
   constructor(private http: HttpClient,
               private router: Router) {}
 
+    //OBTENER CLIENTE MEDIANTE BUSCADOR
+    busquedaCliente(termino: string): Observable<Cliente[]>{
+      return this.http.get<Cliente[]>(`${this.urlEndPoint}/filtrar-clientes/${termino}`);
+    }
+
+
     //OBTENER TODOS LOS CLIENTES
     getClientes(): Observable<Cliente[]>{
       return this.http.get<Cliente[]>(this.urlEndPoint);

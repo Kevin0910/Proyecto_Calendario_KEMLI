@@ -1,6 +1,6 @@
 <detalle-cliente *ngIf="clienteSeleccionado" [cliente] = "clienteSeleccionado"> </detalle-cliente>
 
-<div class="card border-primary mb-3">
+<div class="card mb-3">
   <div class="card-header">Clientes</div>
   <div class="card-body text-secondary">
     <h5 class="card-title">Listado de clientes <i class="bi bi-person"></i></h5>
@@ -9,19 +9,50 @@
       <div class=" col-sm-2 my-3 text-left">
         <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/clientes/formulario']">Crear cliente <i class="bi bi-database-fill-add"></i></button>
       </div>
-
-      <label for="exampleDataList" class="form-label">Busqueda del cliente</label>
-      <form class="d-flex">
-        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Nombre del cliente">
-          <button class="btn btn-outline-success" type="submit">Buscar </button>
-            <datalist id="datalistOptions">
-              <option *ngFor="let cliente of clientes" value="{{cliente.primer_nombre}} {{cliente.segundo_nombre}} {{cliente.apellido_P}} {{cliente.apellido_M}}">
-            </datalist>
-      </form>
-
+        <searchBox (onValue)="busquedaPorNombre($event)" placeholder="Busqueda de cliente" ></searchBox>
+      </div>
+    <div *ngIf="clienteBusquedas.length === 0 else tabla">
     </div>
 
+<ng-template #tabla>
+    <div class="row" >
+      <div class="col" >
+        <hr>
+        <H5 >Tabla de busqueda</H5>
+          <table >
+            <table class="table table-bordered table-striped ">
+              <thead >
+                <tr >
+                  <th>ID</th>
+                  <th>Nombre(s)</th>
+                  <th>Apellido Paterno</th>
+                  <th>Apellido Materno</th>
+                  <th>Detalle <i class="bi bi-person-lines-fil  l"></i></th>
+                  <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let clienteBusqueda of clienteBusquedas">
+                  <td>{{clienteBusqueda.id}}</td>
+                  <td>{{clienteBusqueda.primer_nombre}} {{clienteBusqueda.segundo_nombre}}</td>
+                  <td>{{clienteBusqueda.apellido_P}}</td>
+                  <td>{{clienteBusqueda.apellido_M}}</td>
+                  <td>
+                    <button type="button" name="button_detalle_cliente" (click)="abrirModal(clienteBusqueda)" class="brn btn btn-primary">Detalle <i class="bi bi-person-vcard"></i></button>
+                  </td>
+                  <td>
+                    <button type="button" name="button_eliminar_cliente" (click)="deleteBusqueda(clienteBusqueda)" class="btn btn-danger">Eliminar <i class="bi bi-person-dash-fill"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </table>
+        <hr>
+      </div>
+    </div>
+  </ng-template>
 
+    <h5>Listado de clientes</h5>
       <table class="table table-bordered table-striped">
         <thead>
           <tr>

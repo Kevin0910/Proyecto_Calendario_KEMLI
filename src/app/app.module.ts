@@ -2,8 +2,8 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 import { ClienteComponent } from './cliente/components/cliente.component';
 import { AutenticacionComponent } from './autenticacion/autenticacion.component';
 import { RouterModule, Routes, Route } from '@angular/router';
@@ -22,6 +22,7 @@ import { registerLocaleData } from '@angular/common';
 import localeES from '@angular/common/locales/es';
 import { DetalleClienteComponent } from './cliente/detalle-cliente/detalle-cliente.component';
 import { DetalleCitaComponent } from './cita/detalle-cita/detalle-cita.component';
+import { CajaBusquedaComponent } from './shared/components/caja-busqueda/caja-busqueda.component';
 registerLocaleData(localeES, 'es')
 
 const routes: Routes = [
@@ -53,7 +54,8 @@ const routes: Routes = [
     FormularioCitaComponent,
     DetalleComponent,
     DetalleClienteComponent,
-    DetalleCitaComponent
+    DetalleCitaComponent,
+    CajaBusquedaComponent
     ],
   imports: [
     BrowserModule,
