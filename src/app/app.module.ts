@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ClienteComponent } from './cliente/components/cliente.component';
-import { AutenticacionComponent } from './autenticacion/autenticacion.component';
+import { AutenticacionComponent } from './shared/components/autenticacion/autenticacion.component';
 import { RouterModule, Routes, Route } from '@angular/router';
 import { ReporteComponent } from './reporte/reporte.component';
 import { EmpleadoComponent } from './empleado/components/empleado.component';

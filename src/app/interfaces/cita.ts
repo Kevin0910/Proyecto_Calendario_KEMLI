@@ -1,6 +1,6 @@
 import { TipoActividad } from "./tipoActividad";
-import { Empleado } from '../../empleado/components/empleado';
-import { Cliente } from "../../cliente/components/cliente";
+import { Empleado } from './empleado';
+import { Cliente } from "./cliente";
 
 export class Cita {
   id: number;

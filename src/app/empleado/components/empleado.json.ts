@@ -1,4 +1,4 @@
-import { Empleado } from "./empleado";
+import { Empleado } from "../../interfaces/empleado";
 
 /*export const EMPLEADOS: Empleado [] = [
   {id: 1, nombre:'Empleado1', apellido_P:'Apellido1', apellido_M:'Apellido1', fecha_naci:'2002-01-10', domicilio:'DomicilioEmpleado', correo:'CorreoEmpleado@gmail.com', telefono:'833-111-11-11', tipo_empleado:'Administrativo'},

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Empleado } from './empleado';
+import { Empleado } from '../interfaces/empleado';
 
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs'  ;
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { TipoEmpl } from './tipoEmpl';
+import { TipoEmpl } from '../interfaces/tipoEmpl';
 
 @Injectable({
   providedIn: 'root'

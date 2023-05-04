@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cliente } from './cliente';
+import { Cliente } from '../interfaces/cliente';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs'  ;
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,7 +18,8 @@ export class ClienteService {
               private router: Router) {}
 
     //OBTENER CLIENTE MEDIANTE BUSCADOR
-    busquedaCliente(termino: string): Observable<Cliente[]>{
+    busquedaCliente(termino: string): Observable<Cliente[] | null>{
+      const buscTermino = termino.toLocaleLowerCase
       return this.http.get<Cliente[]>(`${this.urlEndPoint}/filtrar-clientes/${termino}`)
             .pipe(
               catchError(e => {

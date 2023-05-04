@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Cita } from './cita';
+import { Cita } from '../interfaces/cita';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, of, throwError } from 'rxjs';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { TipoActividad } from './tipoActividad';
+import { TipoActividad } from '../interfaces/tipoActividad';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Empleado } from './empleado';
-import { EmpleadoService } from './empleado.service';
+import { Empleado } from '../../interfaces/empleado';
+import { EmpleadoService } from '../../services/empleado.service';
 import swal from 'sweetalert2';
 import { ModalService } from '../detalle/modal.service';
 

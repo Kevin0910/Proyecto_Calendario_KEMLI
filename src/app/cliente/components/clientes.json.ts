@@ -1,4 +1,4 @@
-import { Cliente } from './cliente';
+import { Cliente } from '../../interfaces/cliente';
 
 export const CLIENTES: Cliente [] = [
   {id: 1, primer_nombre:'Usuario1', segundo_nombre:'Segundo_nombre1', apellido_P:'Apellido1', apellido_M:'Apellido1', fecha_naci:'2002-01-10', domicilio:'DomicilioUsuario1', correo:'CorreoUsuario1@gmail.com', telefono:'833-111-11-11'},

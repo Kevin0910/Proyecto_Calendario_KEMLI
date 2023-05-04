@@ -23,10 +23,10 @@ export class CajaBusquedaComponent {
   ngOnInit(): void {
     this.flujoDeCadena
     .pipe(
-      debounceTime(1000)
+      debounceTime(300)
     )
     .subscribe( value => {
-      console.log(value)
+      this.onDebouce.emit(value)
     });
   }
 
@@ -35,7 +35,7 @@ export class CajaBusquedaComponent {
   }
 
   onKeyPress(terminoBusqueda: string){
-    this.onDebouce.emit(terminoBusqueda)
+    this.flujoDeCadena.next(terminoBusqueda)
   }
 
 

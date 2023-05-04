@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Cliente } from '../components/cliente';
-import { ClienteService } from '../components/cliente.service';
+import { Cliente } from '../../interfaces/cliente';
+import { ClienteService } from '../../services/cliente.service';
 import { ModalClienteService } from './modal-cliente.service';
 
 @Component({

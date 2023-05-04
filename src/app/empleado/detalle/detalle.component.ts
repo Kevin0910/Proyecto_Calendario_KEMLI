@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Empleado } from '../components/empleado';
-import { EmpleadoService } from '../components/empleado.service';
+import { Empleado } from '../../interfaces/empleado';
+import { EmpleadoService } from '../../services/empleado.service';
 import { ModalService } from './modal.service';
 
 @Component({

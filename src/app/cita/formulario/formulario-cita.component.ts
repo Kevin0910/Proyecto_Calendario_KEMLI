@@ -1,15 +1,15 @@
-import { EmpleadoService } from '../../empleado/components/empleado.service';
-import { Cita } from '../components/cita';
-import { CitaService } from '../components/cita.service';
+import { EmpleadoService } from '../../services/empleado.service';
+import { Cita } from '../../interfaces/cita';
+import { CitaService } from '../../services/cita.service';
 
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente } from 'src/app/cliente/components/cliente';
+import { Cliente } from 'src/app/interfaces/cliente';
 
 import swal from 'sweetalert2';
-import { TipoActividad } from '../components/tipoActividad';
-import { Empleado } from 'src/app/empleado/components/empleado';
-import { ClienteService } from 'src/app/cliente/components/cliente.service';
+import { TipoActividad } from '../../interfaces/tipoActividad';
+import { Empleado } from 'src/app/interfaces/empleado';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-formulario-cita',
