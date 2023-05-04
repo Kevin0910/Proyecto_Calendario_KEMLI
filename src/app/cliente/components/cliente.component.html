@@ -9,7 +9,9 @@
       <div class=" col-sm-2 my-3 text-left">
         <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/clientes/formulario']">Crear cliente <i class="bi bi-database-fill-add"></i></button>
       </div>
-        <searchBox (onValue)="busquedaPorNombre($event)" placeholder="Busqueda de cliente" ></searchBox>
+        <searchBox
+        (onDebouce)="busquedaPorNombre($event)"
+        placeholder="Busqueda de cliente"></searchBox>
       </div>
     <div *ngIf="clienteBusquedas.length === 0 else tabla">
     </div>

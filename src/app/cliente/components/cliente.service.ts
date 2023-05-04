@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from './cliente';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs'  ;
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import swal from 'sweetalert2';
@@ -19,7 +19,13 @@ export class ClienteService {
 
     //OBTENER CLIENTE MEDIANTE BUSCADOR
     busquedaCliente(termino: string): Observable<Cliente[]>{
-      return this.http.get<Cliente[]>(`${this.urlEndPoint}/filtrar-clientes/${termino}`);
+      return this.http.get<Cliente[]>(`${this.urlEndPoint}/filtrar-clientes/${termino}`)
+            .pipe(
+              catchError(e => {
+                console.log(e)
+                return throwError(() => e)
+              })
+            );
     }
 
 
