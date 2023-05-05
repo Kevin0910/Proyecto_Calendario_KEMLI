@@ -10,7 +10,48 @@
       <div class=" col-sm-2 my-3 text-left">
         <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/citas/formulario-citas']">Crear Cita <i class="bi bi-database-fill-add"></i></button>
       </div>
+      <searchBox
+      (onDebouce)="busquedaPorNombre($event)"  placeholder="Busqueda por nombre">
+      </searchBox>
     </div>
+    <div *ngIf="citaBusquedas.length === 0 else mostrarTablaCita" >
+    </div>
+
+    <ng-template #mostrarTablaCita>
+      <div class="row" >
+        <div class="col" >
+          <hr>
+          <H5 >Tabla de busqueda</H5>
+            <table >
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Nombre del cliente</th>
+                    <th>Nombre del empleado</th>
+                    <th>Fecha de la cita</th>
+                    <th>Detalle de la cita <i class="bi bi-person-lines-fill"></i></th>
+                    <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let citaBusqueda of citaBusquedas">
+                    <td> {{citaBusqueda.cliente.primer_nombre}} {{citaBusqueda.cliente.segundo_nombre}} {{citaBusqueda.cliente.apellido_P}} {{citaBusqueda.cliente.apellido_M}}</td>
+                    <td> {{citaBusqueda.empleado.primer_nombre}} {{citaBusqueda.empleado.segundo_nombre}} {{citaBusqueda.empleado.apellido_P}} {{citaBusqueda.empleado.apellido_M}}</td>
+                    <td> {{citaBusqueda.fecha_cita | date:"EEEE dd, MMMM yyyy"}} </td>
+                    <td>
+                      <button type="button" name="button_detalle_cita" (click)="abrirModal(citaBusqueda)" class=" btn btn-primary">Detalle <i class="bi-person-vcard"></i></button>
+                    </td>
+                    <td>
+                      <button type="button" name="button_eliminar_cita" (click)="delete(cita)" class="btn btn-danger ">Eliminar</button>
+                    </td>
+                </tbody>
+              </table>
+            </table>
+          <hr>
+        </div>
+      </div>
+    </ng-template>
+
 
       <table class="table table-bordered table-striped">
         <thead>
@@ -33,7 +74,7 @@
               <button type="button" name="button_detalle_cita" (click)="abrirModal(cita)" class=" btn btn-primary">Detalle <i class="bi-person-vcard"></i></button>
             </td>
             <td>
-              <button type="button" name="button_eliminar_cita" (click)="delete(cita)" class="btn btn-danger btn-sm">Eliminar</button>
+              <button type="button" name="button_eliminar_cita" (click)="delete(cita)" class="btn btn-danger ">Eliminar</button>
             </td>
           </tr>
         </tbody>

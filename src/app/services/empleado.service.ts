@@ -19,6 +19,18 @@ export class EmpleadoService {
   constructor(private http: HttpClient,
               private router: Router) {}
 
+  //OBTENER EMPLEADO MEDIANTE BUSCADOR
+  busquedaCliente(termino: string): Observable<Empleado[] | null>{
+    const buscTermino = termino.toLocaleLowerCase
+    return this.http.get<Empleado[]>(`${this.urlEndPoint}/filtrar-empleados/${termino}`)
+          .pipe(
+            catchError(e => {
+              console.log(e)
+              return throwError(() => e)
+            })
+          );
+  }
+
   //Arreglo de tipo de empleado
     getTipoEmpleados(): Observable<TipoEmpl[]>{
       return this.http.get<TipoEmpl[]>(this.urlEndPoint+"/tipoEmpleados")

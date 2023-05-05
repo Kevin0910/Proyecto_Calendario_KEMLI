@@ -10,7 +10,48 @@
       <div class=" col-sm-2 my-3 text-left">
         <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/empleados/formulario-empleados']">Crear empleado <i class="bi bi-database-fill-add"></i></button>
       </div>
+      <searchBox (onDebouce)="busquedaPorNombre($event)" placeholder="Busqueda de empleado">
+      </searchBox>
     </div>
+    <div *ngIf="empleadoBusquedas.length === 0 else tablaEmpleadoBusq"></div>
+
+    <ng-template #tablaEmpleadoBusq>
+      <div class="row" >
+        <div class="col" >
+          <hr>
+          <H5 >Tabla de busqueda</H5>
+            <table >
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre(s)</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Detalle <i class="bi bi-person-lines-fill"></i></th>
+                    <th>Eliminar <i class="bi bi-database-fill-dash"></i></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let empleadoBusqueda of empleadoBusquedas">
+                    <td>{{empleadoBusqueda.id}}</td>
+                    <td>{{empleadoBusqueda.primer_nombre}} {{empleadoBusqueda.segundo_nombre}}</td>
+                    <td>{{empleadoBusqueda.apellido_P}}</td>
+                    <td>{{empleadoBusqueda.apellido_M}}</td>
+                    <td>
+                      <button type="button" name="button_detalle_empleado" (click)="abrirModal(empleadoBusqueda)" class="btn btn-primary">Detalle <i class="bi bi-person-vcard"></i></button>
+                    </td>
+                    <td>
+                      <button type="button" name="button_eliminar_empleado" (click)="delete(empleadoBusqueda)" class="btn btn-danger">Eliminar <i class="bi bi-person-dash-fill"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </table>
+          <hr>
+        </div>
+      </div>
+    </ng-template>
 
       <table class="table table-bordered table-striped">
         <thead>
@@ -33,7 +74,7 @@
               <button type="button" name="button_detalle_empleado" (click)="abrirModal(empleado)" class="btn btn-primary">Detalle <i class="bi bi-person-vcard"></i></button>
             </td>
             <td>
-              <button type="button" name="button_eliminar_empleado" (click)="delete(empleado)" class="btn btn-danger btn-sm">Eliminar <i class="bi bi-person-dash-fill"></i></button>
+              <button type="button" name="button_eliminar_empleado" (click)="delete(empleado)" class="btn btn-danger">Eliminar <i class="bi bi-person-dash-fill"></i></button>
             </td>
           </tr>
         </tbody>

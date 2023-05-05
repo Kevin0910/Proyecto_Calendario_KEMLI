@@ -12,6 +12,7 @@ import { ModalService } from '../detalle/modal.service';
 export class EmpleadoComponent {
   empleados: Empleado [];
   empleadoSeleccionado: Empleado;
+  empleadoBusquedas: Empleado[] = []
 
   constructor(private empleadoServicio:EmpleadoService,
               public modalService: ModalService){  }
@@ -19,6 +20,14 @@ export class EmpleadoComponent {
   ngOnInit(): void {
     this.empleadoServicio.getEmpleados().subscribe(
       (empleados) => this.empleados = empleados
+      );
+    }
+
+    busquedaPorNombre(termino: string): void{
+      this.empleadoServicio.busquedaCliente(termino).subscribe(
+        (empleadoBusquedas => {
+          this.empleadoBusquedas = empleadoBusquedas;
+        })
       );
     }
 

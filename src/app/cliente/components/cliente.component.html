@@ -13,10 +13,10 @@
         (onDebouce)="busquedaPorNombre($event)"
         placeholder="Busqueda de cliente"></searchBox>
       </div>
-    <div *ngIf="clienteBusquedas.length === 0 else tabla">
+    <div *ngIf="clienteBusquedas.length === 0 else tablaClienteBusq">
     </div>
 
-<ng-template #tabla>
+<ng-template #tablaClienteBusq>
     <div class="row" >
       <div class="col" >
         <hr>

@@ -13,6 +13,7 @@ export class CitaComponent{
 
   citas: Cita[];
   citaSeleccionado: Cita;
+  citaBusquedas: Cita[] =[];
 
   constructor(private citaService: CitaService,
               public modalCitaService:ModalCitaService){}
@@ -22,6 +23,15 @@ export class CitaComponent{
       (citas) => this.citas =  citas
     );
   }
+
+  busquedaPorNombre(termino: string): void{
+    this.citaService.busquedaCita(termino).subscribe(
+      (citaBusquedas => {
+        this.citaBusquedas = citaBusquedas;
+      })
+    );
+  }
+
   delete(cita:Cita): void{
     swal({
       title: 'Esta seguro?',

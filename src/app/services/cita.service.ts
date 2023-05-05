@@ -18,6 +18,17 @@ export class CitaService {
   constructor(private http:HttpClient,
               private router: Router) { }
 
+  //OBTENER LA CITA MEDIANTE EL BUSCADOR
+  busquedaCita(termino: string): Observable<Cita[] | null>{
+    const buscTermino = termino.toLocaleLowerCase
+    return this.http.get<Cita[]>(`${this.urlEndPoint}/filtrar-citas/${termino}`)
+          .pipe(
+            catchError(e => {
+              console.log(e)
+              return throwError(() => e)
+            })
+          );
+  }
 
   getTipoActividades(): Observable<TipoActividad[]>{
     return this.http.get<TipoActividad[]>(this.urlEndPoint+"/tipoActividades");
