@@ -19,7 +19,6 @@ export class ClienteService {
 
     //OBTENER CLIENTE MEDIANTE BUSCADOR
     busquedaCliente(termino: string): Observable<Cliente[] | null>{
-      const buscTermino = termino.toLocaleLowerCase
       return this.http.get<Cliente[]>(`${this.urlEndPoint}/filtrar-clientes/${termino}`)
             .pipe(
               catchError(e => {

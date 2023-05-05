@@ -37,6 +37,8 @@ export class ClienteComponent {
     );
   }
 
+
+
   //ELIMINAR CLIENTE
   delete(cliente:Cliente): void{
     swal({
@@ -50,7 +52,6 @@ export class ClienteComponent {
       confirmButtonText: 'Si, eliminar!'
     }).then((result) => {
       if (result.value) {
-
         this.clienteService.delete(cliente.id).subscribe(
           response => {
             this.clientes = this.clientes.filter(cli => cli !== cliente)
@@ -81,7 +82,7 @@ export class ClienteComponent {
 
         this.clienteService.delete(busquedaCliente.id).subscribe(
           response => {
-            this.clientes = this.clientes.filter(busqCli => busqCli !== busquedaCliente)
+            this.clienteBusquedas = this.clienteBusquedas.filter(busqCli => busqCli !== busquedaCliente)
             swal(
               'Cliente eliminado!',
               `El cliente ${busquedaCliente.primer_nombre} ${busquedaCliente.apellido_P} ah sido eliminado`,
