@@ -26,7 +26,7 @@
       >
       </searchBox>
     </div>
-    <div *ngIf="empleadoBusquedas.length === 0; else tablaEmpleadoBusq"></div>
+    <div *ngIf="empleadoBusquedas.length === 0 else tablaEmpleadoBusq"></div>
 
     <ng-template #tablaEmpleadoBusq>
       <div class="row">
@@ -68,7 +68,7 @@
                     <button
                       type="button"
                       name="button_eliminar_empleado"
-                      (click)="delete(empleadoBusqueda)"
+                      (click)="deleteBusqueda(empleadoBusqueda)"
                       class="btn btn-danger"
                     >
                       Eliminar <i class="bi bi-person-dash-fill"></i>

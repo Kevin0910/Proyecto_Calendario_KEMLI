@@ -21,7 +21,6 @@ export class EmpleadoService {
 
   //OBTENER EMPLEADO MEDIANTE BUSCADOR
   busquedaCliente(termino: string): Observable<Empleado[] | null>{
-    const buscTermino = termino.toLocaleLowerCase
     return this.http.get<Empleado[]>(`${this.urlEndPoint}/filtrar-empleados/${termino}`)
           .pipe(
             catchError(e => {

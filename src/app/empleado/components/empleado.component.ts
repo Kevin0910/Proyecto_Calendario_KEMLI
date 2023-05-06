@@ -23,13 +23,16 @@ export class EmpleadoComponent {
       );
     }
 
+    //BUSQUEDA POR NOMBRE
     busquedaPorNombre(termino: string): void{
-      this.empleadoServicio.busquedaCliente(termino).subscribe(
-        (empleadoBusquedas => {
-          this.empleadoBusquedas = empleadoBusquedas;
-        })
-      );
-    }
+      if (termino !== '') {
+        this.empleadoServicio.busquedaCliente(termino).subscribe(
+          empleados =>  this.empleadoBusquedas = empleados
+          );
+          }else{
+            this.empleadoBusquedas = [];
+          }
+        }
 
     delete(empleado:Empleado): void{
       swal({
@@ -56,6 +59,34 @@ export class EmpleadoComponent {
           )
         }
       })
+  }
+
+  //ELIMINAR CLIENTE DE BUSQUEDA
+  deleteBusqueda(busquedaEmpleado:Empleado): void{
+    swal({
+      title: 'Esta seguro?',
+      text: `¿Seguro que desea eliminar el cliente ${busquedaEmpleado.primer_nombre} ${busquedaEmpleado.apellido_P}?`,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText:'No, eliminar',
+      confirmButtonText: 'Si, eliminar!'
+    }).then((result) => {
+      if (result.value) {
+
+        this.empleadoServicio.delete(busquedaEmpleado.id).subscribe(
+          response => {
+            this.empleadoBusquedas = this.empleadoBusquedas.filter(busqEmpl => busqEmpl !== busquedaEmpleado)
+            swal(
+              'Cliente eliminado!',
+              `El cliente ${busquedaEmpleado.primer_nombre} ${busquedaEmpleado.apellido_P} ah sido eliminado`,
+              'success'
+            )
+          }
+        )
+      }
+    })
   }
 
   abrirModal (empleado: Empleado){

@@ -24,12 +24,14 @@ export class CitaComponent{
     );
   }
 
-  busquedaPorNombre(termino: string): void{
-    this.citaService.busquedaCita(termino).subscribe(
-      (citaBusquedas => {
-        this.citaBusquedas = citaBusquedas;
-      })
-    );
+  busquedaPorNombre(termino: string): void {
+    if (termino !== '') {
+      this.citaService.busquedaCita(termino).subscribe(
+        citas => this.citaBusquedas = citas
+      );
+    } else {
+      this.citaBusquedas = [];
+    }
   }
 
   delete(cita:Cita): void{
@@ -58,7 +60,33 @@ export class CitaComponent{
     })
   }
 
+  //ELIMINAR CLIENTE DE BUSQUEDA
+  deleteBusqueda(busquedaCita:Cita): void{
+    swal({
+      title: 'Esta seguro?',
+      text: `¿Seguro que desea eliminar el cliente ${busquedaCita.cliente.primer_nombre} ${busquedaCita.cliente.apellido_P}?`,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText:'No, eliminar',
+      confirmButtonText: 'Si, eliminar!'
+    }).then((result) => {
+      if (result.value) {
 
+        this.citaService.delete(busquedaCita.id).subscribe(
+          response => {
+            this.citaBusquedas = this.citaBusquedas.filter(busqCita => busqCita !== busquedaCita)
+            swal(
+              'Cliente eliminado!',
+              `El cliente ${busquedaCita.cliente.primer_nombre} ${busquedaCita.cliente.apellido_P} ah sido eliminado`,
+              'success'
+            )
+          }
+        )
+      }
+    })
+  }
 
 abrirModal(cita:Cita){
   this.citaSeleccionado = cita;

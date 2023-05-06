@@ -29,14 +29,6 @@ export class ClienteComponent {
 
   }
 
-  // busquedaPorNombre(termino: string): void{
-  //   this.clienteService.busquedaCliente(termino).subscribe(
-  //     (clienteBusquedas => {
-  //       this.clienteBusquedas = clienteBusquedas;
-  //     })
-  //   );
-  // }
-
   busquedaPorNombre(termino: string): void {
     if (termino !== '') {
       this.clienteService.busquedaCliente(termino).subscribe(
