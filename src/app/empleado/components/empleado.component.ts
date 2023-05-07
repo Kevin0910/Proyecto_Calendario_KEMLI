@@ -26,7 +26,7 @@ export class EmpleadoComponent {
     //BUSQUEDA POR NOMBRE
     busquedaPorNombre(termino: string): void{
       if (termino !== '') {
-        this.empleadoServicio.busquedaCliente(termino).subscribe(
+        this.empleadoServicio.busquedaEmpleado(termino).subscribe(
           empleados =>  this.empleadoBusquedas = empleados
           );
           }else{
@@ -77,7 +77,7 @@ export class EmpleadoComponent {
 
         this.empleadoServicio.delete(busquedaEmpleado.id).subscribe(
           response => {
-            this.empleadoBusquedas = this.empleadoBusquedas.filter(busqEmpl => busqEmpl !== busquedaEmpleado)
+            this.empleadoBusquedas = this.empleadoBusquedas.filter(busqEmpl => busqEmpl !== busquedaEmpleado);
             swal(
               'Cliente eliminado!',
               `El cliente ${busquedaEmpleado.primer_nombre} ${busquedaEmpleado.apellido_P} ah sido eliminado`,

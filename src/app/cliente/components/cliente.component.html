@@ -62,8 +62,8 @@
             <th>Nombre(s)</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
-            <th>Detalle <i class="bi bi-person-lines-fill"></i></th>
-            <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th>
+            <!-- <th>Detalle <i class="bi bi-person-lines-fill"></i></th>
+            <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th> -->
           </tr>
         </thead>
         <tbody>
@@ -72,12 +72,12 @@
             <td>{{cliente.primer_nombre}} {{cliente.segundo_nombre}}</td>
             <td>{{cliente.apellido_P}}</td>
             <td>{{cliente.apellido_M}}</td>
-            <td>
+            <!-- <td>
               <button type="button" name="button_detalle_cliente" (click)="abrirModal(cliente)" class="brn btn btn-primary">Detalle <i class="bi bi-person-vcard"></i></button>
             </td>
             <td>
               <button type="button" name="button_eliminar_cliente" (click)="delete(cliente)" class="btn btn-danger">Eliminar <i class="bi bi-person-dash-fill"></i></button>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>

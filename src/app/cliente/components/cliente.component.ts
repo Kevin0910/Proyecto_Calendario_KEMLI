@@ -24,7 +24,7 @@ export class ClienteComponent {
 
   ngOnInit() {
     this.clienteService.getClientes().subscribe(
-      (clientes) => this.clientes = clientes
+      (clientes) => {this.clientes = clientes;}
     );
 
   }
@@ -42,31 +42,31 @@ export class ClienteComponent {
 
 
   //ELIMINAR CLIENTE
-  delete(cliente:Cliente): void{
-    swal({
-      title: 'Esta seguro?',
-      text: `¿Seguro que desea eliminar el cliente ${cliente.primer_nombre} ${cliente.apellido_P}?`,
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      cancelButtonText:'No, eliminar',
-      confirmButtonText: 'Si, eliminar!'
-    }).then((result) => {
-      if (result.value) {
-        this.clienteService.delete(cliente.id).subscribe(
-          response => {
-            this.clientes = this.clientes.filter(cli => cli !== cliente)
-            swal(
-              'Cliente eliminado!',
-              `El cliente ${cliente.primer_nombre} ${cliente.apellido_P} ah sido eliminado`,
-              'success'
-            )
-          }
-        )
-      }
-    })
-  }
+  // delete(cliente:Cliente): void{
+  //   swal({
+  //     title: 'Esta seguro?',
+  //     text: `¿Seguro que desea eliminar el cliente ${cliente.primer_nombre} ${cliente.apellido_P}?`,
+  //     type: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     cancelButtonText:'No, eliminar',
+  //     confirmButtonText: 'Si, eliminar!'
+  //   }).then((result) => {
+  //     if (result.value) {
+  //       this.clienteService.delete(cliente.id).subscribe(
+  //         response => {
+  //           this.clientes = this.clientes.filter(cli => cli !== cliente)
+  //           swal(
+  //             'Cliente eliminado!',
+  //             `El cliente ${cliente.primer_nombre} ${cliente.apellido_P} ah sido eliminado`,
+  //             'success'
+  //           )
+  //         }
+  //       )
+  //     }
+  //   })
+  // }
 
   //ELIMINAR CLIENTE DE BUSQUEDA
   deleteBusqueda(busquedaCliente:Cliente): void{
@@ -84,7 +84,8 @@ export class ClienteComponent {
 
         this.clienteService.delete(busquedaCliente.id).subscribe(
           response => {
-            this.clienteBusquedas = this.clienteBusquedas.filter(busqCli => busqCli !== busquedaCliente)
+            this.clienteBusquedas = this.clienteBusquedas.filter(busqCli => busqCli !== busquedaCliente);
+            this.clientes = this.clientes.filter(cli => cli !== busquedaCliente);
             swal(
               'Cliente eliminado!',
               `El cliente ${busquedaCliente.primer_nombre} ${busquedaCliente.apellido_P} ah sido eliminado`,

@@ -18,9 +18,9 @@ export class CitaService {
   constructor(private http:HttpClient,
               private router: Router) { }
 
-  //OBTENER LA CITA MEDIANTE EL BUSCADOR
-  busquedaCita(termino: string): Observable<Cita[] | null>{
-    return this.http.get<Cita[]>(`${this.urlEndPoint}/filtrar-citas/${termino}`)
+              //BUSCADOR DE CLIENTES
+  busqCliente(termino: string): Observable<Cita[] | null>{
+    return this.http.get<Cita[]>(`${this.urlEndPoint}/filtrar-cliente-citas/${termino}`)
           .pipe(
             catchError(e => {
               console.log(e)
@@ -28,6 +28,21 @@ export class CitaService {
             })
           );
   }
+
+  //BUSCADOR DE EMPLEADOS
+  busqEmpleado(termino: string): Observable<Cita[] | null>{
+    return this.http.get<Cita[]>(`${this.urlEndPoint}/filtrar-empleado-citas/${termino}`)
+          .pipe(
+            catchError(e => {
+              console.log(e)
+              return throwError(() => e)
+            })
+          );
+  }
+
+
+
+
 
   getTipoActividades(): Observable<TipoActividad[]>{
     return this.http.get<TipoActividad[]>(this.urlEndPoint+"/tipoActividades");

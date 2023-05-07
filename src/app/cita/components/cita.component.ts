@@ -4,6 +4,10 @@ import { Cita } from '../../interfaces/cita';
 import swal from 'sweetalert2';
 import { ModalCitaService } from '../detalle-cita/modal-cita.service';
 import { CitaService } from '../../services/cita.service';
+import { ClienteService } from '../../services/cliente.service';
+import { Cliente } from 'src/app/interfaces/cliente';
+import { Empleado } from 'src/app/interfaces/empleado';
+import { EmpleadoService } from '../../services/empleado.service';
 
 @Component({
   selector: 'app-cita',
@@ -15,7 +19,15 @@ export class CitaComponent{
   citaSeleccionado: Cita;
   citaBusquedas: Cita[] =[];
 
+  // empleados: Empleado[];
+  // empleadoBusquedas: Empleado[] = [];
+
+
+  mostrarBusqClientes = false;
+  mostrarBusqEmpleado = false;
+
   constructor(private citaService: CitaService,
+              private empleadoService: EmpleadoService,
               public modalCitaService:ModalCitaService){}
 
   ngOnInit() {
@@ -24,15 +36,26 @@ export class CitaComponent{
     );
   }
 
-  busquedaPorNombre(termino: string): void {
+  busqCliente(termino: string): void {
     if (termino !== '') {
-      this.citaService.busquedaCita(termino).subscribe(
+      this.citaService.busqCliente(termino).subscribe(
         citas => this.citaBusquedas = citas
       );
     } else {
       this.citaBusquedas = [];
     }
   }
+
+  busqEmpleado(termino: string): void {
+    if (termino !== '') {
+      this.citaService.busqEmpleado(termino).subscribe(
+        citas => this.citaBusquedas = citas
+      );
+    } else {
+      this.citaBusquedas = [];
+    }
+  }
+
 
   delete(cita:Cita): void{
     swal({

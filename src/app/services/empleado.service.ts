@@ -20,7 +20,7 @@ export class EmpleadoService {
               private router: Router) {}
 
   //OBTENER EMPLEADO MEDIANTE BUSCADOR
-  busquedaCliente(termino: string): Observable<Empleado[] | null>{
+  busquedaEmpleado(termino: string): Observable<Empleado[] | null>{
     return this.http.get<Empleado[]>(`${this.urlEndPoint}/filtrar-empleados/${termino}`)
           .pipe(
             catchError(e => {

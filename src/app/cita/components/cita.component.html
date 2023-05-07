@@ -6,17 +6,27 @@
     <h5 class="card-title">Listado de citas</h5>
 
 
-    <div class=" form-group row mb-2">
-      <div class=" col-sm-2 my-3 text-left">
-        <button class="btn btn-rounded btn-success" type="button" [routerLink]="['/citas/formulario-citas']">Crear Cita <i class="bi bi-database-fill-add"></i></button>
+    <div class=" form-group">
+      <div class="my-3">
+        <button class="btn btn-success m-lg-2" type="button" [routerLink]="['/citas/formulario-citas']">Crear Cita <i class="bi bi-database-fill-add"></i></button>
+        <button class="btn btn-primary m-lg-2" type="button" (click)="mostrarBusqClientes = true; mostrarBusqEmpleado = false">Busqueda del cliente</button>
+        <button class="btn btn-warning m-lg-2" type="button" (click)="mostrarBusqEmpleado = true; mostrarBusqClientes = false" >Busqueda del empleado</button>
       </div>
-      <searchBox
-      (onDebouce)="busquedaPorNombre($event)"  placeholder="Busqueda por nombre">
+<div *ngIf="mostrarBusqClientes">
+  <searchBox
+      (onDebouce)="busqCliente($event)"  placeholder="Buscar cliente">
       </searchBox>
-    </div>
-    <div *ngIf="citaBusquedas.length === 0 else mostrarTablaCita" >
-    </div>
+</div>
+<div *ngIf="mostrarBusqEmpleado">
+  <searchBox
+      (onDebouce)="busqEmpleado($event)"  placeholder="Buscar empleado">
+      </searchBox>
+</div>
 
+
+    </div>
+    <div class="my-3"  *ngIf="citaBusquedas.length === 0 else mostrarTablaCita" >
+    </div>
     <ng-template #mostrarTablaCita>
       <div class="row" >
         <div class="col" >
@@ -60,8 +70,8 @@
             <th>ID CLIENTE</th>
             <th>ID EMPLEADO</th>
             <th>Fecha de la cita</th>
-            <th>Detalle de la cita <i class="bi bi-person-lines-fill"></i></th>
-            <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th>
+            <!-- <th>Detalle de la cita <i class="bi bi-person-lines-fill"></i></th>
+            <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th> -->
           </tr>
         </thead>
         <tbody>
@@ -70,12 +80,12 @@
             <td>{{cita.cliente.id}} </td>
             <td>{{cita.empleado.id}} </td>
             <td>{{cita.fecha_cita | date:"EEEE dd, MMMM yyyy"}} </td>
-            <td>
+            <!-- <td>
               <button type="button" name="button_detalle_cita" (click)="abrirModal(cita)" class=" btn btn-primary">Detalle <i class="bi-person-vcard"></i></button>
             </td>
             <td>
               <button type="button" name="button_eliminar_cita" (click)="delete(cita)" class="btn btn-danger ">Eliminar</button>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>
