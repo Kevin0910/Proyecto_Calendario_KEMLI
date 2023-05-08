@@ -59,10 +59,10 @@
         <div class="form-group row mb-3">
           <label for="direccion" class="col-form-label col-sm-2">Dirección</label>
             <div class="col-sm-6">
-              <input type="text" placeholder="Ingresar direccion donde se requiere el servicio" class="form-control" [(ngModel)]="cita.direccion" name="direccion" #direccion_cliente = "ngModel"> <!-- required -->
+              <input type="text" placeholder="Ingresar dirección donde se requiere el servicio" class="form-control" [(ngModel)]="cita.direccion" name="direccion" #direccion_cliente = "ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="direccion_cliente.invalid && (direccion_cliente.dirty || direccion_cliente.touched)">
                 <div *ngIf="direccion_cliente.errors.required">
-                  Se requiere la direccion
+                  Se requiere la dirección
                 </div>
               </div>
             </div>
@@ -71,10 +71,10 @@
         <div class="form-group row mb-3">
           <label for="descripcion" class="col-form-label col-sm-2">Descripción</label>
             <div class="col-sm-6">
-              <input type="text" placeholder="Ingresar descripcion del lugar" class="form-control" [(ngModel)]="cita.descripcion" name="descripcion" #descripcion_cliente = "ngModel"> <!-- required -->
+              <input type="text" placeholder="Ingresar descripción del lugar" class="form-control" [(ngModel)]="cita.descripcion" name="descripcion" #descripcion_cliente = "ngModel"> <!-- required -->
               <div class="alert alert-danger" *ngIf="descripcion_cliente.invalid && (descripcion_cliente.dirty || descripcion_cliente.touched)">
                 <div *ngIf="descripcion_cliente.errors.required">
-                  Se requiere la descripcion del hogar o edificio
+                  Se requiere la descripción del hogar o edificio
                 </div>
               </div>
             </div>
