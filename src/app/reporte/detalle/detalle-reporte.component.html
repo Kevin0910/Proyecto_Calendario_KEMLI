@@ -1,0 +1,53 @@
+<div *ngIf="modalReporteService.modal" class="modal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h1 class="modal-title fs-5"> {{titulo}} id: "{{reporte.id}}" <i class="bi bi-table"></i> </h1>
+      <button (click)="cerrarModal()" type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-8">
+              <ul *ngIf="reporte">
+                <li class="list-group-item">Nombre del cliente</li>
+                <li class="list-group-item">{{reporte.cita.cliente.id}}.- {{reporte.cita.cliente.primer_nombre}} {{reporte.cita.cliente.segundo_nombre}} {{reporte.cita.cliente.apellido_P}} {{reporte.cita.cliente.apellido_M}} </li>
+              </ul>
+              <hr color="dark">
+              <ul >
+                <li class ="list-group-item"> Nombre del empleado</li>
+                <li class="list-group-item"> {{reporte.cita.empleado.id}}.- {{reporte.cita.empleado.primer_nombre}} {{reporte.cita.empleado.segundo_nombre}} {{reporte.cita.empleado.apellido_P}} {{reporte.cita.empleado.apellido_M}} </li>
+              </ul>
+              <hr color="dark">
+               <ul>
+                <li class="list-group-item"> Tipo de actividad </li>
+                <li class="list-group-item"> {{reporte.cita.tipoDeActividad.id}}.- {{reporte.cita.tipoDeActividad.tipoActividad}} </li>
+              </ul>
+              <hr color="dark">
+              <ul>
+                <li class="list-group-item"> Fecha y hora de la cita <i class="bi bi-calendar3"></i></li>
+                <li class="list-group-item"> {{ reporte.cita.fecha_cita | date:"EEEE dd, MMMM yyyy"}} a las {{reporte.cita.hora_cita }}</li>
+              </ul>
+              <hr color="dark">
+              <ul>
+                <li class="list-group-item"> Direccion del cliente<i class="bi bi-geo-alt-fill"></i></li>
+                <li class="list-group-item"> {{reporte.cita.direccion}} </li>
+              </ul>
+              <hr color="dark">
+              <ul>
+                <li class="list-group-item"> Reporte  <i class="bi bi-pencil-square"></i></li>
+                <li class="list-group-item"> {{reporte.descripcionReporte}} </li>
+              </ul>
+              <hr color="dark">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cerrar <i class="bi bi-x-circle"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

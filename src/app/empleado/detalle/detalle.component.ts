@@ -12,8 +12,7 @@ export class DetalleComponent {
   titulo: string = 'Detalle del empleado'
   @Input() empleado: Empleado;
 
-  constructor(private empleadoService: EmpleadoService,
-              public modalService: ModalService){ }
+  constructor(public modalService: ModalService){ }
 
   ngOnInit(){ }
 

@@ -43,7 +43,7 @@ export class ForularioEmpleadoComponent {
   this.empleadoService.create(this.empleado).subscribe(
     jsonResponse => {
       this.router.navigate(['/empleados'])
-      swal('Empleado Guardado', `El empleado ${jsonResponse.empleado.primer_nombre} ${jsonResponse.empleado.apellido_P} se a guardado con exito`, 'success')
+      swal('Empleado Guardado', `El empleado ${jsonResponse.empleado.nombreDelEmpleado} ${jsonResponse.empleado.apellido_P} se a guardado con exito`, 'success')
     },
     err =>{
       this.errores = err.error.errors as string[];
@@ -58,7 +58,7 @@ export class ForularioEmpleadoComponent {
     this.empleadoService.update(this.empleado)
     .subscribe (jsonResponse => {
         this.router.navigate(['/empleados'])
-        swal('Empleado Actualizado', `El empleado ${jsonResponse.empleado.primer_nombre} ${jsonResponse.empleado.apellido_P} se a actualizado con exito`, 'success')
+        swal('Empleado Actualizado', `El empleado ${jsonResponse.empleado.nombreDelEmpleado} ${jsonResponse.empleado.apellido_P} se a actualizado con exito`, 'success')
       },
       err =>{
         this.errores = err.error.errors as string[];

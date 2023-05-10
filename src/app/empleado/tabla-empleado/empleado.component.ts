@@ -37,7 +37,7 @@ export class EmpleadoComponent {
     delete(empleado:Empleado): void{
       swal({
         title: 'Esta seguro?',
-        text: `¿Seguro que desea eliminar el empleado ${empleado.primer_nombre} ${empleado.apellido_P}?`,
+        text: `¿Seguro que desea eliminar el empleado ${empleado.nombreDelEmpleado} ${empleado.apellido_P}?`,
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -52,7 +52,7 @@ export class EmpleadoComponent {
               this.empleados = this.empleados.filter(empl => empl !== empleado)
               swal(
                 'Cliente eliminado!',
-                `El empleado ${empleado.primer_nombre} ${empleado.apellido_P} ah sido eliminado`,
+                `El empleado ${empleado.nombreDelEmpleado} ${empleado.apellido_P} ah sido eliminado`,
                 'success'
               )
             }
@@ -65,7 +65,7 @@ export class EmpleadoComponent {
   deleteBusqueda(busquedaEmpleado:Empleado): void{
     swal({
       title: 'Esta seguro?',
-      text: `¿Seguro que desea eliminar el cliente ${busquedaEmpleado.primer_nombre} ${busquedaEmpleado.apellido_P}?`,
+      text: `¿Seguro que desea eliminar el cliente ${busquedaEmpleado.nombreDelEmpleado} ${busquedaEmpleado.apellido_P}?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -80,7 +80,7 @@ export class EmpleadoComponent {
             this.empleadoBusquedas = this.empleadoBusquedas.filter(busqEmpl => busqEmpl !== busquedaEmpleado);
             swal(
               'Cliente eliminado!',
-              `El cliente ${busquedaEmpleado.primer_nombre} ${busquedaEmpleado.apellido_P} ah sido eliminado`,
+              `El cliente ${busquedaEmpleado.nombreDelEmpleado} ${busquedaEmpleado.apellido_P} ah sido eliminado`,
               'success'
             )
           }

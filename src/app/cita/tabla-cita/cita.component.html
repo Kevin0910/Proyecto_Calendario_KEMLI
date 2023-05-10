@@ -40,19 +40,19 @@
                     <th>Nombre del empleado</th>
                     <th>Fecha de la cita</th>
                     <th>Detalle de la cita <i class="bi bi-person-lines-fill"></i></th>
-                    <th>Eliminar <i class="bi bi-database-fill-dash"></i> </th>
+                    <th>Cancelar cita <i class="bi bi-database-fill-dash"></i> </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let citaBusqueda of citaBusquedas">
                     <td> {{citaBusqueda.cliente.primer_nombre}} {{citaBusqueda.cliente.segundo_nombre}} {{citaBusqueda.cliente.apellido_P}} {{citaBusqueda.cliente.apellido_M}}</td>
-                    <td> {{citaBusqueda.empleado.primer_nombre}} {{citaBusqueda.empleado.segundo_nombre}} {{citaBusqueda.empleado.apellido_P}} {{citaBusqueda.empleado.apellido_M}}</td>
+                    <td> {{citaBusqueda.empleado.nombreDelEmpleado}} {{citaBusqueda.empleado.apellido_P}} {{citaBusqueda.empleado.apellido_M}}</td>
                     <td> {{citaBusqueda.fecha_cita | date:"EEEE dd, MMMM yyyy"}} </td>
                     <td>
                       <button type="button" name="button_detalle_cita" (click)="abrirModal(citaBusqueda)" class=" btn btn-primary">Detalle <i class="bi-person-vcard"></i></button>
                     </td>
                     <td>
-                      <button type="button" name="button_eliminar_cita" (click)="deleteBusqueda(citaBusqueda)" class="btn btn-danger ">Eliminar</button>
+                      <button type="button" name="button_eliminar_cita" (click)="deleteBusqueda(citaBusqueda)" class="btn btn-danger "> Cancelar</button>
                     </td>
                 </tbody>
               </table>

@@ -2,8 +2,7 @@ import { TipoEmpl } from "./tipoEmpl";
 
 export class Empleado{
   id: number;
-  primer_nombre: string;
-  segundo_nombre: string;
+  nombreDelEmpleado: string;
   apellido_P: string;
   apellido_M: string;
   fecha_naci: string;

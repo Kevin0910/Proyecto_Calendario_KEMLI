@@ -1,16 +1,16 @@
-<detalle-empleado
-  *ngIf="empleadoSeleccionado"
-  [empleado]="empleadoSeleccionado"
-></detalle-empleado>
+<detalle-reporte
+  *ngIf="reporteSeleccionado"
+  [reporte]="reporteSeleccionado"
+></detalle-reporte>
 
 <div class="card border-primary mb-3">
-  <div class="card-header">Empleados</div>
+  <div class="card-header">Seccion de reportes</div>
   <div class="card-body text-secondary">
     <h5 class="card-title">
-      Listado de empleados <i class="bi bi-person"></i>
+      Listado de reportes <i class="bi bi-person"></i>
     </h5>
 
-    <div class="form-group row mb-2">
+    <!-- <div class="form-group row mb-2">
       <div class="col-sm-2 my-3 text-left">
         <button
           class="btn btn-rounded btn-success"
@@ -25,8 +25,8 @@
         placeholder="Busqueda de empleado"
       >
       </searchBox>
-    </div>
-    <div *ngIf="empleadoBusquedas.length === 0 else tablaEmpleadoBusq"></div>
+    </div> -->
+    <!-- <div *ngIf="empleadoBusquedas.length === 0 else tablaEmpleadoBusq"></div>
 
     <ng-template #tablaEmpleadoBusq>
       <div class="row">
@@ -81,43 +81,32 @@
           <hr />
         </div>
       </div>
-    </ng-template>
+    </ng-template> -->
 
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Nombre(s)</th>
-          <th>Apellido Paterno</th>
-          <th>Apellido Materno</th>
+          <th>Id reporte</th>
+          <th>Id cita</th>
+          <th>Id cliente</th>
+          <th>Nombre del cliente</th>
           <th>Detalle <i class="bi bi-person-lines-fill"></i></th>
-          <th>Eliminar <i class="bi bi-database-fill-dash"></i></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let empleado of empleados">
-          <td>{{ empleado.id }}</td>
-          <td>{{ empleado.primer_nombre }} {{ empleado.segundo_nombre }}</td>
-          <td>{{ empleado.apellido_P }}</td>
-          <td>{{ empleado.apellido_M }}</td>
+        <tr *ngFor="let reporte of reportes">
+          <td>{{ reporte.id }}</td>
+          <td>{{ reporte.cita.id}}</td>
+          <td>{{ reporte.cita.cliente.id }}</td>
+          <td>{{ reporte.cita.cliente.primer_nombre }} {{ reporte.cita.cliente.segundo_nombre }} {{ reporte.cita.cliente.apellido_P }} {{ reporte.cita.cliente.apellido_M }} </td>
           <td>
             <button
               type="button"
-              name="button_detalle_empleado"
-              (click)="abrirModal(empleado)"
+              name="button_detalle_reporte"
+              (click)="abrirModal(reporte)"
               class="btn btn-primary"
             >
               Detalle <i class="bi bi-person-vcard"></i>
-            </button>
-          </td>
-          <td>
-            <button
-              type="button"
-              name="button_eliminar_empleado"
-              (click)="delete(empleado)"
-              class="btn btn-danger"
-            >
-              Eliminar <i class="bi bi-person-dash-fill"></i>
             </button>
           </td>
         </tr>
