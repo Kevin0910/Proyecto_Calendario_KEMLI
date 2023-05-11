@@ -72,7 +72,7 @@ export class ClienteComponent {
   deleteBusqueda(busquedaCliente:Cliente): void{
     swal({
       title: 'Esta seguro?',
-      text: `¿Seguro que desea eliminar el cliente ${busquedaCliente.primer_nombre} ${busquedaCliente.apellido_P}?`,
+      text: `¿Seguro que desea eliminar el cliente ${busquedaCliente.nombreDelCliente} ${busquedaCliente.apellido_P}?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -88,7 +88,7 @@ export class ClienteComponent {
             this.clientes = this.clientes.filter(cli => cli !== busquedaCliente);
             swal(
               'Cliente eliminado!',
-              `El cliente ${busquedaCliente.primer_nombre} ${busquedaCliente.apellido_P} ah sido eliminado`,
+              `El cliente ${busquedaCliente.nombreDelCliente} ${busquedaCliente.apellido_P} ah sido eliminado`,
               'success'
             )
           }

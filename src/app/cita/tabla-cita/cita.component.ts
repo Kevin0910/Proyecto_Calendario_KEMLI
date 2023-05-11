@@ -60,7 +60,7 @@ export class CitaComponent{
   delete(cita:Cita): void{
     swal({
       title: 'Esta seguro?',
-      text: `¿Seguro que desea eliminar la cita del cliente ${cita.cliente.primer_nombre} ${cita.cliente.apellido_P} con el id cita ${cita.cliente.id} ?`,
+      text: `¿Seguro que desea eliminar la cita del cliente ${cita.cliente.nombreDelCliente} ${cita.cliente.apellido_P} con el id cita ${cita.cliente.id} ?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -74,7 +74,7 @@ export class CitaComponent{
             this.citas = this.citas.filter(ci => ci !== cita)
             swal(
               'Cita eliminada!',
-              `La cita del cliente ${cita.cliente.primer_nombre} ${cita.cliente.apellido_P} ah sido eliminado`,
+              `La cita del cliente ${cita.cliente.nombreDelCliente} ${cita.cliente.apellido_P} ah sido eliminado`,
               'success'
             )
           }
@@ -87,7 +87,7 @@ export class CitaComponent{
   deleteBusqueda(busquedaCita:Cita): void{
     swal({
       title: 'Esta seguro?',
-      text: `¿Seguro que desea eliminar el cliente ${busquedaCita.cliente.primer_nombre} ${busquedaCita.cliente.apellido_P}?`,
+      text: `¿Seguro que desea eliminar el cliente ${busquedaCita.cliente.nombreDelCliente} ${busquedaCita.cliente.apellido_P}?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -102,7 +102,7 @@ export class CitaComponent{
             this.citaBusquedas = this.citaBusquedas.filter(busqCita => busqCita !== busquedaCita)
             swal(
               'Cliente eliminado!',
-              `El cliente ${busquedaCita.cliente.primer_nombre} ${busquedaCita.cliente.apellido_P} ah sido eliminado`,
+              `El cliente ${busquedaCita.cliente.nombreDelCliente} ${busquedaCita.cliente.apellido_P} ah sido eliminado`,
               'success'
             )
           }

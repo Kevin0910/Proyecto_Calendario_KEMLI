@@ -45,7 +45,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let citaBusqueda of citaBusquedas">
-                    <td> {{citaBusqueda.cliente.primer_nombre}} {{citaBusqueda.cliente.segundo_nombre}} {{citaBusqueda.cliente.apellido_P}} {{citaBusqueda.cliente.apellido_M}}</td>
+                    <td> {{citaBusqueda.cliente.nombreDelCliente}} {{citaBusqueda.cliente.apellido_P}} {{citaBusqueda.cliente.apellido_M}}</td>
                     <td> {{citaBusqueda.empleado.nombreDelEmpleado}} {{citaBusqueda.empleado.apellido_P}} {{citaBusqueda.empleado.apellido_M}}</td>
                     <td> {{citaBusqueda.fecha_cita | date:"EEEE dd, MMMM yyyy"}} </td>
                     <td>

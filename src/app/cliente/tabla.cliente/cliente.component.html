@@ -36,7 +36,7 @@
               <tbody>
                 <tr  *ngFor="let clienteBusqueda of clienteBusquedas">
                   <td>{{clienteBusqueda.id}}</td>
-                  <td>{{clienteBusqueda.primer_nombre}} {{clienteBusqueda.segundo_nombre}}</td>
+                  <td>{{clienteBusqueda.nombreDelCliente}}</td>
                   <td>{{clienteBusqueda.apellido_P}}</td>
                   <td>{{clienteBusqueda.apellido_M}}</td>
                   <td>
@@ -69,7 +69,7 @@
         <tbody>
           <tr *ngFor="let cliente of clientes">
             <td>{{cliente.id}}</td>
-            <td>{{cliente.primer_nombre}} {{cliente.segundo_nombre}}</td>
+            <td>{{cliente.nombreDelCliente}}</td>
             <td>{{cliente.apellido_P}}</td>
             <td>{{cliente.apellido_M}}</td>
             <!-- <td>

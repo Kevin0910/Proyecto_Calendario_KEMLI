@@ -12,7 +12,7 @@
         <div class="form-group row mb-3">
           <label for="nombre_1" class="col-form-label col-sm-2 ">Primer nombre</label>
           <div class="col-sm-6">
-            <input type="text" placeholder="Ingresar nombre" class="form-control" [(ngModel)] ="empleado.nombreDelEmpleado" name="nombre_1"  #primer_nombre="ngModel">  <!-- required minlength="3"-->
+            <input type="text" placeholder="Ingresar nombre del empleado" class="form-control" [(ngModel)] ="empleado.nombreDelEmpleado" name="nombre_1"  #primer_nombre="ngModel">  <!-- required minlength="3"-->
             <div class="alert alert-danger" *ngIf="primer_nombre.invalid && (primer_nombre.dirty || primer_nombre.touched)">
               <div *ngIf="primer_nombre.errors.required">
                 Nombre requerido

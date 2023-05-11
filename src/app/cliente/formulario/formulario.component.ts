@@ -39,7 +39,7 @@ export class FormularioComponent {
     this.clienteService.create(this.cliente)
     .subscribe( jsonResponse => {
       this.router.navigate(['/clientes'])
-      swal('Cliente agregado',`El cliente ${jsonResponse.cliente.primer_nombre} ${jsonResponse.cliente.apellido_P} ${jsonResponse.mensaje} `, 'success')
+      swal('Cliente agregado',`El cliente ${jsonResponse.cliente.nombreDelCliente} ${jsonResponse.cliente.apellido_P} ${jsonResponse.mensaje} `, 'success')
       },
       err =>{
         this.errores = err.error.errors as string[];
@@ -54,7 +54,7 @@ export class FormularioComponent {
     this.clienteService.update(this.cliente)
     .subscribe( jsonResponse => {
         this.router.navigate(['/clientes'])
-        swal ('Cliente Guardado', `El cliente ${jsonResponse.cliente.primer_nombre} ${jsonResponse.cliente.apellido_P} ${jsonResponse.mensaje} `, 'success' )
+        swal ('Cliente Guardado', `El cliente ${jsonResponse.cliente.nombreDelCliente} ${jsonResponse.cliente.apellido_P} ${jsonResponse.mensaje} `, 'success' )
       },
       err =>{
         this.errores = err.error.errors as string[];

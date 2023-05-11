@@ -10,10 +10,10 @@
 
       <form #clienteForm ="ngForm">
         <div class="form-group row mb-3">
-          <label for="primer_nombre" class="col-form-label col-sm-2 ">Primer nombre</label>
+          <label for="nombre" class="col-form-label col-sm-2 ">Nombre </label>
           <div class="col-sm-6">
-            <input type="text" placeholder="Ingresar primer nombre" class="form-control" [(ngModel)] ="cliente.primer_nombre" name="primer_nombre"  #primer_nombre="ngModel"> <!-- required minlength="3" -->
-            <div class="alert alert-danger" *ngIf="primer_nombre.invalid && (primer_nombre.dirty || primer_nombre.touched)">
+            <input type="text" placeholder="Ingresar nombre del cliente" class="form-control" [(ngModel)] ="cliente.nombreDelCliente" name="nombre"  #nombre="ngModel"> <!-- required minlength="3" -->
+            <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
               <div *ngIf="primer_nombre.errors.required">
                 Nombre requerido
               </div>
@@ -23,13 +23,6 @@
             </div>
           </div>
         </div>
-
-          <div class="form-group row mb-3">
-            <label for="segundo_nombre" class="col-form-label col-sm-2 ">Segundo nombre</label>
-            <div class="col-sm-6">
-              <input type="text" placeholder="Ingresar segundo nombre" class="form-control" [(ngModel)] ="cliente.segundo_nombre" name="segundo_nombre">
-            </div>
-          </div>
 
         <div class="form-group row mb-3">
           <label for="apellido_P" class="col-form-label col-sm-2">Apellido Paterno</label>
