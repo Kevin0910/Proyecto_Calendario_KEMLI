@@ -68,9 +68,9 @@
         </div>
 
         <div class="form-group row mb-3">
-          <label for="correo" class="col-form-label col-sm-2">Correo electronico <i class="bi bi-envelope-at-fill"></i></label>
+          <label for="correo" class="col-form-label col-sm-2">Correo electrónico <i class="bi bi-envelope-at-fill"></i></label>
             <div class="col-sm-6">
-              <input type="text" placeholder="Ingresar gmail" class="form-control" [(ngModel)]="empleado.correo" name="correo"  #email="ngModel"> <!-- required email -->
+              <input type="text" placeholder="Ingresar email" class="form-control" [(ngModel)]="empleado.correo" name="correo"  #email="ngModel"> <!-- required email -->
               <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
                 <div *ngIf="email.errors.required">
                   Email requerido
@@ -83,12 +83,12 @@
         </div>
 
         <div class="form-group row mb-3">
-          <label for="telefono" class="col-form-label col-sm-2">Número de telefono <i class="bi bi-telephone-plus-fill"></i></label>
+          <label for="telefono" class="col-form-label col-sm-2">Número de teléfono <i class="bi bi-telephone-plus-fill"></i></label>
             <div class="col-sm-6">
-              <input type="text" placeholder="Ingresar número de telefono" class="form-control" [(ngModel)]="empleado.telefono" name="telefono"  #telefono ="ngModel"> <!--required-->
+              <input type="text" placeholder="Ingresar número de teléfono" class="form-control" [(ngModel)]="empleado.telefono" name="telefono"  #telefono ="ngModel"> <!--required-->
               <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
                 <div *ngIf="telefono.errors.required">
-                  Telefono requerido
+                  Teléfono requerido
                 </div>
               </div>
             </div>
