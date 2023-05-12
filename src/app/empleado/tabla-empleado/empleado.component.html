@@ -82,6 +82,7 @@
       </div>
     </ng-template>
 
+    <h5>Listado de empleados</h5>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
@@ -89,8 +90,6 @@
           <th>Nombre(s)</th>
           <th>Apellido Paterno</th>
           <th>Apellido Materno</th>
-          <th>Detalle <i class="bi bi-person-lines-fill"></i></th>
-          <th>Eliminar <i class="bi bi-database-fill-dash"></i></th>
         </tr>
       </thead>
       <tbody>
@@ -99,26 +98,6 @@
           <td>{{ empleado.nombreDelEmpleado }}</td>
           <td>{{ empleado.apellido_P }}</td>
           <td>{{ empleado.apellido_M }}</td>
-          <td>
-            <button
-              type="button"
-              name="button_detalle_empleado"
-              (click)="abrirModal(empleado)"
-              class="btn btn-primary"
-            >
-              Detalle <i class="bi bi-person-vcard"></i>
-            </button>
-          </td>
-          <td>
-            <button
-              type="button"
-              name="button_eliminar_empleado"
-              (click)="delete(empleado)"
-              class="btn btn-danger"
-            >
-              Eliminar <i class="bi bi-person-dash-fill"></i>
-            </button>
-          </td>
         </tr>
       </tbody>
     </table>
