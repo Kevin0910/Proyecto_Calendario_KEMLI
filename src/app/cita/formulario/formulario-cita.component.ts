@@ -22,8 +22,8 @@ export class FormularioCitaComponent {
 
   public errores: string[];
   public clientes: Cliente[];
-  public empleados: Empleado[];
-  public  tipoActividad: TipoActividad[];
+  public empleadosTec: Empleado[];
+  public tipoActividad: TipoActividad[];
 
   constructor(private citaService: CitaService,
               private empleadoService: EmpleadoService,
@@ -35,7 +35,7 @@ export class FormularioCitaComponent {
     this.cargarCita();
 
     this.citaService.getTipoActividades().subscribe(tipoActividades => this.tipoActividad = tipoActividades);
-    this.empleadoService.getEmpleados().subscribe(empleados => this.empleados = empleados);
+    this.empleadoService.getEmpleadosTecnicos().subscribe(empleadosTec => this.empleadosTec = empleadosTec);
     this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes);
   }
 

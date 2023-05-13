@@ -14,7 +14,7 @@
           <label for="empleado" class="col-form-label col-sm-2">Nombre del empleado <i class="bi bi-briefcase"></i></label>
             <div class="col-sm-6">
               <select [compareWith]="compararEmpleado" class="form-control" [(ngModel)]="cita.empleado" name="id_empleado"  style="width: 500xp;">
-                <option *ngFor="let empleado of empleados" [ngValue]="empleado"> {{empleado.id}}.- {{empleado.nombreDelEmpleado}} {{empleado.apellido_P}} {{empleado.apellido_M}} ( {{empleado.tipoDeEmpleado.tipoEmpleado}} )</option>
+                <option *ngFor="let empleado of empleadosTec" [ngValue]="empleado"> {{empleado.id}}.- {{empleado.nombreDelEmpleado}} {{empleado.apellido_P}} {{empleado.apellido_M}} ( {{empleado.tipoDeEmpleado.tipoEmpleado}} )</option>
               </select>
             </div>
         </div>

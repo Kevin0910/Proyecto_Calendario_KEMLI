@@ -35,6 +35,11 @@ export class EmpleadoService {
       return this.http.get<TipoEmpl[]>(this.urlEndPoint+"/tipoEmpleados")
     }
 
+    //Arreglo de los empelados que son tecnicos
+    getEmpleadosTecnicos():Observable<Empleado[]>{
+      return this.http.get<Empleado[]>(this.urlEndPoint+'/filtrar-tecnicos');
+    }
+
   //OBTENER TODOS LOS CLIENTES
     getEmpleados(): Observable <Empleado[]>{
       return this.http.get<Empleado[]>(this.urlEndPoint);
