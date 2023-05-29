@@ -5,6 +5,7 @@ import { Observable, catchError, of, throwError } from 'rxjs';
 import swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { TipoActividad } from '../interfaces/tipoActividad';
+import { Region } from '../cliente/region';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +19,36 @@ export class CitaService {
   constructor(private http:HttpClient,
               private router: Router) { }
 
+
+  private isNoAutorizado(e): boolean{
+    if(e.status==401 ){
+      this.router.navigate(['/login'])
+      return true;
+  }
+  if( e.status==403){
+   swal ('Acceso denegado');
+   this.router.navigate(['/citas'])
+   return true;
+}
+    return false;
+  }
+
+  getRegiones(): Observable<Region[]>{
+    return this.http.get<Region[]>(this.urlEndPoint+'/regiones').pipe(
+      catchError (e=>{
+        this.isNoAutorizado(e);
+        return throwError(()=>e);
+      })
+    )
+  }
               //BUSCADOR DE CLIENTES
   busqCliente(termino: string): Observable<Cita[] | null>{
     return this.http.get<Cita[]>(`${this.urlEndPoint}/filtrar-cliente-citas/${termino}`)
           .pipe(
             catchError(e => {
+              if(this.isNoAutorizado(e)){
+                return throwError(()=>e);
+            }
               console.log(e)
               return throwError(() => e)
             })
@@ -34,6 +60,9 @@ export class CitaService {
     return this.http.get<Cita[]>(`${this.urlEndPoint}/filtrar-empleado-citas/${termino}`)
           .pipe(
             catchError(e => {
+              if(this.isNoAutorizado(e)){
+                return throwError(()=>e);
+            }
               console.log(e)
               return throwError(() => e)
             })
@@ -59,8 +88,11 @@ export class CitaService {
     return this.http.post<any>(this.urlEndPoint, cita, {headers:this.HttpHeaders}).pipe(
       catchError(e => {
 
+        if(this.isNoAutorizado(e)){
+            return throwError(()=>e);
+        }
         if(e.status == 400){
-          return throwError(() => e)
+          return throwError(()=>e);
         }
 
         console.error(e.error.mensaje);
@@ -74,6 +106,9 @@ export class CitaService {
   getCita(id): Observable<any>{
     return this.http.get<any>(`${this.urlEndPoint}/${id}`).pipe(
       catchError(e => {
+        if(this.isNoAutorizado(e)){
+          return throwError(()=>e);
+      }
         this.router.navigate(['/citas']);
         console.error(e.error.mensaje);
         swal('Error al editar', e.error.mensaje, 'error');
@@ -86,7 +121,9 @@ export class CitaService {
   update(cita: Cita): Observable<any>{
     return this.http.put<any>(`${this.urlEndPoint}/${cita.id}`, cita, {headers:this.HttpHeaders}).pipe(
         catchError(e => {
-
+          if(this.isNoAutorizado(e)){
+            return throwError(()=>e);
+        }
           if(e.status == 400){
             return throwError(() => e)
           }
@@ -103,6 +140,9 @@ export class CitaService {
   delete(id:number): Observable<any>{
     return this.http.delete<any>(`${this.urlEndPoint}/${id}`, {headers:this.HttpHeaders}).pipe(
       catchError(e => {
+        if(this.isNoAutorizado(e)){
+          return throwError(()=>e);
+      }
         console.error(e.error.mensaje);
         swal(e.error.mensaje, e.error.error, 'error');
         return throwError(() => e)

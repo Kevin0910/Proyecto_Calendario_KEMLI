@@ -24,6 +24,7 @@ import { DetalleClienteComponent } from './cliente/detalle-cliente/detalle-clien
 import { DetalleCitaComponent } from './cita/detalle-cita/detalle-cita.component';
 import { DetalleReporteComponent } from './reporte/detalle/detalle-reporte.component';
 import { CajaBusquedaComponent } from './shared/components/caja-busqueda/caja-busqueda.component';
+import { LoginComponent } from './usuarios/login.component';
 registerLocaleData(localeES, 'es')
 
 const routes: Routes = [
@@ -37,7 +38,8 @@ const routes: Routes = [
   {path: 'empleados/formulario-empleados', component: ForularioEmpleadoComponent},
   {path: 'empleados/formulario-empleados/:id', component: ForularioEmpleadoComponent},
   {path: 'citas/formulario-citas', component: FormularioCitaComponent},
-  {path: 'citas/formulario-citas/:id', component: FormularioCitaComponent}
+  {path: 'citas/formulario-citas/:id', component: FormularioCitaComponent},
+  {path: 'login', component: LoginComponent}
 ]
 
 @NgModule({
@@ -57,7 +59,8 @@ const routes: Routes = [
     DetalleClienteComponent,
     DetalleCitaComponent,
     DetalleReporteComponent,
-    CajaBusquedaComponent
+    CajaBusquedaComponent,
+    LoginComponent
     ],
   imports: [
     BrowserModule,
