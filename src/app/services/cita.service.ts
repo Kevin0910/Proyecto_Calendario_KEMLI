@@ -71,7 +71,7 @@ export class CitaService {
   }
 
   //OBTENER CITAS
-  getCita(id): Observable<any>{
+    getCita(id): Observable<any>{
     return this.http.get<any>(`${this.urlEndPoint}/${id}`).pipe(
       catchError(e => {
         this.router.navigate(['/citas']);
